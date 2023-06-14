@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 03:06:53 by llion             #+#    #+#             */
-/*   Updated: 2023/06/14 10:55:22 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/14 15:33:08 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,23 @@
 
 Contact::Contact(void) {
 	std::cout << "Contact created" << std::endl;
-	return ;
+	return;
 }
 
 Contact::~Contact(void) {
 	std::cout << "Contact destroyed" << std::endl;
-	return ;
+	return;
 }
 
-void	Contact::setFirstName(std::string firstName) {
+void	Contact::setFirstName() {
+    std::string firstName;
+
+	std::cout << "Set Name: ";
+	std::getline(std::cin, firstName);
 	_firstName = firstName;
-	std::cout << "Nom defini" << std::endl;
 }
+
+std::string	Contact::getFirstName(void) {
+	return this->_firstName;
+}
+

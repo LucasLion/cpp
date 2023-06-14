@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 01:30:24 by llion             #+#    #+#             */
-/*   Updated: 2023/06/14 11:00:37 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/14 15:27:54 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 # define PHONEBOOK_HPP
 
 #include <iostream>
+#include <string>
+#include <iomanip>
+
 
 class Contact {
 	
 public:
 				Contact(void);
 				~Contact(void);
-	void		setFirstName(std::string firstName);
+	void		setFirstName(void);
 	void		setLastName(std::string lastName);
 	void		setNickname(std::string nickname);
 	void		setPhoneNumber(std::string phoneNumber);
@@ -45,9 +48,10 @@ public:
 	PhoneBook(void);
 	~PhoneBook(void);
 	void	addContact(void);
+	void	displayMenu(void);
+	Contact	_contacts[3];
 
 private:
-	Contact	_contacts[8];
 };
 
 #endif
