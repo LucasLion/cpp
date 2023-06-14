@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 01:30:24 by llion             #+#    #+#             */
-/*   Updated: 2023/05/06 03:05:46 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/14 11:00:37 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@
 class Contact {
 	
 public:
-	Contact(void);
-	~Contact(void);
-	void	setFirstName(char *firstName);
-	void	setLastName(char *lastName);
-	void	setNickname(char *nickname);
-	void	setPhoneNumber(char *phoneNumber);
-	void	setDarkestSecret(char *darkestSecret);
-	char	*getFirstName(void);
-	char	*getLastName(void);
-	char	*getNickname(void);
-	char	*getPhoneNumber(void);
-	char	*getDarkestSecret(void);
+				Contact(void);
+				~Contact(void);
+	void		setFirstName(std::string firstName);
+	void		setLastName(std::string lastName);
+	void		setNickname(std::string nickname);
+	void		setPhoneNumber(std::string phoneNumber);
+	void		setDarkestSecret(std::string darkestSecret);
+	std::string	getFirstName(void);
+	std::string	getLastName(void);
+	std::string	getNickname(void);
+	std::string	getPhoneNumber(void);
+	std::string	getDarkestSecret(void);
 
 private:
-	char _firstName[512];
-	char _lastName[512];
-	char _nickname[512];
-	char _phoneNumber[20];
-	char _darkestSecret[512];
+	std::string	_firstName;
+	std::string	_lastName;
+	std::string	_nickname;
+	std::string	_phoneNumber;
+	std::string	_darkestSecret;
 };
 
 class PhoneBook {
