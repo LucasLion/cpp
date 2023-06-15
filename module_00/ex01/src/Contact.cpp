@@ -6,11 +6,11 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 03:06:53 by llion             #+#    #+#             */
-/*   Updated: 2023/06/15 09:08:51 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/15 14:58:31 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/PhoneBook.hpp"
+#include "../include/Contact.hpp"
 
 Contact::Contact(void) {
 	std::cout << "Contact created" << std::endl;
@@ -31,7 +31,6 @@ void	Contact::setFirstName() {
 		std::getline(std::cin, firstName);
 	}
 	_firstName = firstName;
-	//shrink(_firstName);
 }
 
 void	Contact::setLastName() {
@@ -43,7 +42,6 @@ void	Contact::setLastName() {
 		std::getline(std::cin, lastName);
 	}
 	_lastName = lastName;
-	//shrink(_lastName);
 }
 
 void	Contact::setNickName() {
@@ -55,7 +53,6 @@ void	Contact::setNickName() {
 		std::getline(std::cin, nickName);
 	}
 	_nickName = nickName;
-	//shrink(_nickName);
 }
 
 void	Contact::setPhoneNumber() {
@@ -67,7 +64,6 @@ void	Contact::setPhoneNumber() {
 		std::getline(std::cin, phoneNumber);
 	}
 	_phoneNumber = phoneNumber;
-	//jshrink(_phoneNumber);
 }
 
 void	Contact::setDarkestSecret() {
@@ -79,7 +75,6 @@ void	Contact::setDarkestSecret() {
 		std::getline(std::cin, darkestSecret);
 	}
 	_darkestSecret = darkestSecret;
-	//shrink(_darkestSecret);
 }
 
 std::string	Contact::getFirstName(void) {
