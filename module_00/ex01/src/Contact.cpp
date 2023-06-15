@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 03:06:53 by llion             #+#    #+#             */
-/*   Updated: 2023/06/14 20:59:10 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/15 09:08:51 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,6 @@ Contact::~Contact(void) {
 	return;
 }
 
-void	shrink(std::string &str) {
-	if (str.length() > SIZE) {
-		str.resize(SIZE - 1);
-		str.append(".");
-	}
-}	
-
 void	Contact::setFirstName() {
     std::string firstName;
 
@@ -38,19 +31,7 @@ void	Contact::setFirstName() {
 		std::getline(std::cin, firstName);
 	}
 	_firstName = firstName;
-	shrink(_firstName);
-}
-
-// TODO change _lastname to make generic function
-void	Contact::set(std::string str, std::string prompt)
-{
-	while (str.empty())
-	{
-		std::cout << prompt;
-		std::getline(std::cin, str);
-	}
-	_lastName = str;
-	shrink(_lastName);
+	//shrink(_firstName);
 }
 
 void	Contact::setLastName() {
@@ -62,7 +43,7 @@ void	Contact::setLastName() {
 		std::getline(std::cin, lastName);
 	}
 	_lastName = lastName;
-	shrink(_lastName);
+	//shrink(_lastName);
 }
 
 void	Contact::setNickName() {
@@ -74,7 +55,7 @@ void	Contact::setNickName() {
 		std::getline(std::cin, nickName);
 	}
 	_nickName = nickName;
-	shrink(_nickName);
+	//shrink(_nickName);
 }
 
 void	Contact::setPhoneNumber() {
@@ -86,7 +67,7 @@ void	Contact::setPhoneNumber() {
 		std::getline(std::cin, phoneNumber);
 	}
 	_phoneNumber = phoneNumber;
-	shrink(_phoneNumber);
+	//jshrink(_phoneNumber);
 }
 
 void	Contact::setDarkestSecret() {
@@ -98,7 +79,7 @@ void	Contact::setDarkestSecret() {
 		std::getline(std::cin, darkestSecret);
 	}
 	_darkestSecret = darkestSecret;
-	shrink(_darkestSecret);
+	//shrink(_darkestSecret);
 }
 
 std::string	Contact::getFirstName(void) {

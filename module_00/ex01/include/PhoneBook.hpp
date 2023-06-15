@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 01:30:24 by llion             #+#    #+#             */
-/*   Updated: 2023/06/14 20:56:38 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/15 09:52:54 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Contact {
 public:
 				Contact(void);
 				~Contact(void);
-	void		set(std::string str, std::string prompt);
+	void		set(std::string toSet, std::string str, std::string msg);
 	void		setFirstName(void);
 	void		setLastName();
 	void		setNickName();
@@ -48,11 +48,12 @@ private:
 class PhoneBook {
 	
 public:
-	PhoneBook(void);
-	~PhoneBook(void);
-	void	addContact(void);
-	void	displayMenu(void);
-	void	displayContact(int index);
+				PhoneBook(void);
+				~PhoneBook(void);
+	void		addContact(void);
+	void		displayMenu(void);
+	void		displayContact(int index);
+	std::string	shrink(std::string str);
 	Contact	_contacts[MAX_CONTACTS];
 
 private:

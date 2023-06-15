@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 01:35:40 by llion             #+#    #+#             */
-/*   Updated: 2023/06/14 20:34:22 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/15 09:52:35 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,20 @@ void	PhoneBook::displayContact(int index) {
 	std::cout << this->_contacts[index].getDarkestSecret() << std::endl;
 }
 
+std::string	PhoneBook::shrink(std::string str) {
+	std::string shrinked = str;
+	if (shrinked.length() > SIZE) {
+		shrinked.resize(SIZE - 1);
+		shrinked.append(".");
+	}
+	return shrinked;
+}	
+
 void	PhoneBook::displayMenu() {
-	std::cout << std::setfill('-');
-	std::cout << "┌"<< std::setw(SIZE) << "" << "┬" << std::setw(SIZE) << "";
-	std::cout << "┬"<< std::setw(SIZE) << "" << "┬" << std::setw(SIZE) << "" << "┐" << std::endl;
+	for (int i = 0; i < 5; i++)
+		std::cout << std::setfill('-');
+	std::cout << "┌" << std::setw(SIZE) << "" << "┬" << std::setw(SIZE) << "";
+	std::cout << "┬" << std::setw(SIZE) << "" << "┬" << std::setw(SIZE) << "" << "┐" << std::endl;
 	std::cout << std::setfill(' ');
 	std::cout << "│" << std::setw(SIZE) << "Index" << "│" << std::setw(SIZE) << "First Name" << "│";
 
@@ -60,9 +70,9 @@ void	PhoneBook::displayMenu() {
 	std::cout << std::setfill(' ');
 	for (int i = 0; i < MAX_CONTACTS; i++) {
 		std::cout << "│" << std::setw(SIZE) << i;
-		std::cout << "│" << std::setw(SIZE) << this->_contacts[i].getFirstName();
-		std::cout << "│" << std::setw(SIZE) << this->_contacts[i].getLastName();
-		std::cout << "│" << std::setw(SIZE) << this->_contacts[i].getNickName() << "│" << std::endl;
+		std::cout << "│" << std::setw(SIZE) << shrink(this->_contacts[i].getFirstName());
+		std::cout << "│" << std::setw(SIZE) << shrink(this->_contacts[i].getLastName());
+		std::cout << "│" << std::setw(SIZE) << shrink(this->_contacts[i].getNickName()) << "│" << std::endl;
 	}
 	std::cout << std::setfill('-');
 	std::cout << "└"<< std::setw(SIZE) << "" << "┴" << std::setw(SIZE) << "";
