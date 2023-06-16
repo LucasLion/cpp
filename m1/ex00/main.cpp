@@ -6,29 +6,12 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 01:39:29 by llion             #+#    #+#             */
-/*   Updated: 2023/06/16 01:43:23 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/16 15:08:29 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie*	newZombie( std::string name) {
-
-	Zombie*	zombie = new Zombie;
-	
-	(*zombie).setName(name);
-	std::cout << "Zombie created on the heap" << std::endl;
-	return zombie;
-}
-
-void randomChump( std::string name ) {
-	Zombie zombie;
-
-	zombie.setName(name);
-	std::cout << "Zombie created on the stack" << std::endl;
-}
-
-// TODO: utiliser ces fonctions
 int main() {
 	Zombie *zombie1 = newZombie("Zombie1");	
 	Zombie *zombie2 = newZombie("Zombie2");
@@ -40,6 +23,11 @@ int main() {
 	randomChump("Zombie8");
 	randomChump("Zombie9");
 	randomChump("Zombie10");
+	delete zombie1;
+	delete zombie2;
+	delete zombie3;
+	delete zombie4;
+	delete zombie5;
 	return (0);
 
 }

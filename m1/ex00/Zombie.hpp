@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 00:59:59 by llion             #+#    #+#             */
-/*   Updated: 2023/06/16 01:16:44 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/16 15:11:05 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ public:
 			Zombie();
 			~Zombie();
 	void	announce( void );
-	void	setName(std::string name);
+	void	setName( std::string name );
 			
 };
 
-#endif
+void		randomChump( std::string name );
+Zombie*		newZombie( std::string name );
 
+#endif
