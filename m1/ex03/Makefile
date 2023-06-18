@@ -6,7 +6,7 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/06/18 18:26:04 by llion            ###   ########.fr        #
+#    Updated: 2023/06/18 20:13:32 by llion            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Weapon
 CC   = c++
 CFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
 RM   = rm -f
-SRC = main.cpp Weapon.hpp Weapon.cpp HumanA.hpp HumanA.cpp HumanB.hpp HumanB.cpp
+SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
 OBJ  = $(SRC:.cpp=.o)
 
