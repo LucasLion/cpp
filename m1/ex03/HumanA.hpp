@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 20:14:36 by llion             #+#    #+#             */
-/*   Updated: 2023/06/18 21:12:48 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/19 14:58:27 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ public:
 
 private:
 	std::string	_name;
-	Weapon		&_weapon;
-				HumanA();
+	Weapon&		_weapon;
 
 };
 

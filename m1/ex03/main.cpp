@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 18:41:29 by llion             #+#    #+#             */
-/*   Updated: 2023/06/18 18:42:17 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/19 15:48:15 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,10 @@ int main()
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
+	}
+	{
+		HumanB nakedMan("Naked Man");
+		nakedMan.attack();
 	}
 	return 0;
 }

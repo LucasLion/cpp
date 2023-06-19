@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 20:15:58 by llion             #+#    #+#             */
-/*   Updated: 2023/06/18 20:36:30 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/19 15:41:02 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ public:
 				~HumanB(void);
 	void		attack(void);
 	std::string	getName(void);
-	void		setWeapon(Weapon weapon);
+	void		setWeapon(Weapon &weapon);
 
 private:
 	std::string	_name;
-	Weapon		_weapon;
+	Weapon*		_weapon;
 
 };
 
