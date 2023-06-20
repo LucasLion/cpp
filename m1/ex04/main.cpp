@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 15:59:49 by llion             #+#    #+#             */
-/*   Updated: 2023/06/19 18:18:09 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/20 13:01:53 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@
 int main(int argc, char **argv)
 {
 	if (argc == 4) {
-		std::ifstream ollivander(argv[1]);
-		std::ofstream newFile(std::string(argv[1]) + ".replace");
-		std::string word;
-		std::cout << ollivander.rdbuf() << std::endl;
-		if (ollivander) {
-			while (ollivander >> word)
+		std::ifstream	olliv(argv[1]);
+		std::ofstream	newFile(std::string(argv[1]) + ".replace");
+		std::string		line;
+
+		if (olliv) {
+			while (std::getline(olliv, line)) {
 				if (word == argv[2]) {
-					word = argv[3];
+					newFile << argv[3] << " ";
 				}
-				newFile << word << " ";
-				ollivander.close();
-				newFile.close();
+				else
+					newFile << word << " ";
+			}
+			olliv.close();
+			newFile.close();
 		}
 		else
 			std::cout << "Error: Fatal" << std::endl;

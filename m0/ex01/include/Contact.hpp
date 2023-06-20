@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 01:30:24 by llion             #+#    #+#             */
-/*   Updated: 2023/06/15 15:36:32 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/16 10:56:40 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <cstdlib>
 # include <iomanip>
 
-# define MAX_CONTACTS 4
-# define SIZE 15
+# define MAX_CONTACTS 8
+# define SIZE 10
 
 class Contact {
 	

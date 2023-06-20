@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:02:50 by llion             #+#    #+#             */
-/*   Updated: 2023/06/16 00:45:15 by llion            ###   ########.fr       */
+/*   Updated: 2023/06/16 11:30:42 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,11 @@ bool	Account::makeWithdrawal(int withdrawal) {
 	std::cout << "refused" << std::endl;
 	return false;
 }
-
-void	Account::_displayTimestamp( void ) {
-	auto currentTime = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-
+void Account::_displayTimestamp( void ) {
+    std::time_t currentTime = std::time(nullptr);
     std::tm *localTime = std::localtime(&currentTime);
-    std::cout << "[" << std::put_time(localTime, "%Y%m%d_%H%M%S") << "]";
+    char timestamp[20];
+
+    std::strftime(timestamp, sizeof(timestamp), "%Y%m%d_%H%M%S", localTime);
+    std::cout << "[" << timestamp << "]";
 }

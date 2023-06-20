@@ -6,7 +6,7 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/06/19 15:59:40 by llion            ###   ########.fr        #
+#    Updated: 2023/06/20 12:21:32 by llion            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,4 +37,6 @@ fclean: clean
 
 re: fclean all
 
+run:
+	@./$(NAME) ollivander.txt baguette bite
 .PHONY: all clean fclean re
