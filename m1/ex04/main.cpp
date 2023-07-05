@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 15:59:49 by llion             #+#    #+#             */
-/*   Updated: 2023/07/05 15:35:30 by llion            ###   ########.fr       */
+/*   Updated: 2023/07/05 17:45:58 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <string.h>
 
-void	replace_str(std::string line, std::size_t found) {
-	
+std::string	replace_str(std::string line, std::size_t found, int size, char **argv) {
+	line.erase(found, size);
+	line.insert(found, argv[3]);
+	return (line);
 }
 
 int main(int argc, char **argv) {
@@ -24,6 +27,7 @@ int main(int argc, char **argv) {
 		std::ifstream	olliv(argv[1]);
 		std::ofstream	newFile(std::string(argv[1]) + ".replace");
 		std::string		line;
+		std::string		arg(argv[2]);
 		std::size_t		found;
 
 		if (olliv) {
@@ -31,9 +35,10 @@ int main(int argc, char **argv) {
 				found = line.find(argv[2]);	
 				while (found != std::string::npos) {
 					std::cout << "word found at " << found << " line " << std::endl;
-					replace_str(line, found);
+					line = replace_str(line, found, arg.size(), argv);
 					found = line.find(argv[2], found + 1);
 				}
+				newFile << line << std::endl;
 			}
 			olliv.close();
 			newFile.close();
