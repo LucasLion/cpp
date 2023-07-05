@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 15:59:49 by llion             #+#    #+#             */
-/*   Updated: 2023/06/20 13:01:53 by llion            ###   ########.fr       */
+/*   Updated: 2023/07/05 15:35:30 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,25 @@
 #include <string>
 #include <iomanip>
 
-int main(int argc, char **argv)
-{
+void	replace_str(std::string line, std::size_t found) {
+	
+}
+
+int main(int argc, char **argv) {
 	if (argc == 4) {
 		std::ifstream	olliv(argv[1]);
 		std::ofstream	newFile(std::string(argv[1]) + ".replace");
 		std::string		line;
+		std::size_t		found;
 
 		if (olliv) {
 			while (std::getline(olliv, line)) {
-				if (word == argv[2]) {
-					newFile << argv[3] << " ";
+				found = line.find(argv[2]);	
+				while (found != std::string::npos) {
+					std::cout << "word found at " << found << " line " << std::endl;
+					replace_str(line, found);
+					found = line.find(argv[2], found + 1);
 				}
-				else
-					newFile << word << " ";
 			}
 			olliv.close();
 			newFile.close();
