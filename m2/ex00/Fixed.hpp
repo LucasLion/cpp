@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/06 20:41:36 by llion             #+#    #+#             */
+/*   Created: 2023/07/06 20:55:14 by llion             #+#    #+#             */
 /*   Updated: 2023/07/07 00:02:16 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
 #include <iostream>
+#include <iomanip>
 
-int main( void ) {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
+class Fixed {
 
-	c = b;
+public:
+						Fixed();
+						Fixed( const Fixed& source );
+	void				operator=( Fixed &source );
+						~Fixed();
+	int					getRawBits( void ) const;
+	void				setRawBits( int const raw );
 
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	return 0;
-}
+private:
+	int					_fixNumber;
+	static const int	_fract = 8;
+
+};
+#endif
