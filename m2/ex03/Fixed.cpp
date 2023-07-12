@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 23:28:48 by llion             #+#    #+#             */
-/*   Updated: 2023/07/11 16:36:47 by llion            ###   ########.fr       */
+/*   Updated: 2023/07/12 10:49:28 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ Fixed&	Fixed::max( Fixed& a, Fixed& b ) {
 		return (b);
 }
 
-const Fixed& Fixed::max( const Fixed& a, const Fixed& b ) {
+const Fixed& Fixed::max(const Fixed& a,const Fixed& b){
 	if (a > b)
 		return (a);
 	else

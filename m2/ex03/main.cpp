@@ -6,14 +6,14 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 20:41:36 by llion             #+#    #+#             */
-/*   Updated: 2023/07/11 17:58:17 by llion            ###   ########.fr       */
+/*   Updated: 2023/07/11 18:41:52 by llion            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
 int main( void ) {
-Point P1; //default constructor P1 = (0 ; 0)
+	Point P1; //default constructor P1 = (0 ; 0)
 	Point P2(Fixed(4.18f), Fixed(3.02f)); // Fixed constructor P2 = (4.18 ; 3.02)
 	Point P3(P2); // copy constructor P3 = P2 = (4.18 ; 3.02)
 	Point P4(Fixed(94.16f), Fixed(100.12f));
