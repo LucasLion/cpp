@@ -20,7 +20,7 @@ def bsp(a, b, c, point):
 
     return (orientation1 > 0 and orientation2 > 0 and orientation3 > 0) or (orientation1 < 0 and orientation2 < 0 and orientation3 < 0)
 
-def plot_triangle(a, b, c, points):
+def plot_triangle(a, b, c, points, output_file):
     plt.plot([a.x, b.x], [a.y, b.y], 'b-', label='Arête AB')  # Arête AB en bleu
     plt.plot([b.x, c.x], [b.y, c.y], 'b-', label='Arête BC')  # Arête BC en bleu
     plt.plot([c.x, a.x], [c.y, a.y], 'b-', label='Arête CA')  # Arête CA en bleu
@@ -34,7 +34,8 @@ def plot_triangle(a, b, c, points):
     plt.axis('equal')
     plt.grid(True)
     plt.legend()
-    plt.show()
+    plt.savefig(output_file)  # Sauvegarde du graphique dans un fichier image
+    plt.close()  # Fermeture de la figure pour libérer la mémoire
 
 # Points du triangle
 Ta = Point(0, 0, 'blue')
@@ -49,6 +50,9 @@ P4 = Point(9.16, 10.12, 'orange')
 P5 = Point(2.56, 2.08, 'cyan')
 P6 = Point(1.5, 1.5, 'magenta')
 P7 = Point(-0.5, -0.5, 'yellow')
+P8 = Point(1.11, -1.44, 'gray')
+P9 = Point(5.12, -4.16, 'peru')
+P10 = Point(6.33, -2.76, 'black')
 
 # Appel de la fonction bsp pour chaque point
 result_P1 = bsp(Ta, Tb, Tc, P1)
@@ -58,45 +62,13 @@ result_P4 = bsp(Ta, Tb, Tc, P4)
 result_P5 = bsp(Ta, Tb, Tc, P5)
 result_P6 = bsp(Ta, Tb, Tc, P6)
 result_P7 = bsp(Ta, Tb, Tc, P7)
-
-# Affichage des résultats
-print("P1: un des sommets, devrait être faux")
-print("x:", P1.x, "y:", P1.y)
-print("Résultat BSP:", result_P1)
-print()
-
-print("P2: à l'intérieur du triangle, devrait être vrai")
-print("x:", P2.x, "y:", P2.y)
-print("Résultat BSP:", result_P2)
-print()
-
-print("P3: sur le côté, devrait être faux")
-print("x:", P3.x, "y:", P3.y)
-print("Résultat BSP:", result_P3)
-print()
-
-print("P4: à l'extérieur du triangle, devrait être faux")
-print("x:", P4.x, "y:", P4.y)
-print("Résultat BSP:", result_P4)
-print()
-
-print("P5: sur le côté, devrait être faux")
-print("x:", P5.x, "y:", P5.y)
-print("Résultat BSP:", result_P5)
-print()
-
-print("P6: à l'intérieur, devrait être vrai")
-print("x:", P6.x, "y:", P6.y)
-print("Résultat BSP:", result_P6)
-print()
-
-print("P7: à l'extérieur du triangle, devrait être faux")
-print("x:", P7.x, "y:", P7.y)
-print("Résultat BSP:", result_P7)
-print()
+result_P8 = bsp(Ta, Tb, Tc, P8)
+result_P9 = bsp(Ta, Tb, Tc, P9)
+result_P10 = bsp(Ta, Tb, Tc, P10)
 
 # Liste des points pour la visualisation
-points = [P1, P2, P3, P4, P5, P6, P7]
+points = [P1, P2, P3, P4, P5, P6, P7, P8, P9, P10]
 
 # Visualisation du triangle et des points
-plot_triangle(Ta, Tb, Tc, points)
+plot_triangle(Ta, Tb, Tc, points, 'graphique.png')  # Spécifiez le nom du fichier image que vous souhaitez générer
+

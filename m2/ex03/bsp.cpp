@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 17:39:14 by llion             #+#    #+#             */
-/*   Updated: 2023/07/11 22:47:41 by llion            ###   ########.fr       */
+/*   Updated: 2023/07/13 11:12:50 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,4 @@ bool bsp( const Point a, const Point b, const Point c, const Point point) {
     
     return (orientation1 > 0 && orientation2 > 0 && orientation3 > 0) ||
            (orientation1 < 0 && orientation2 < 0 && orientation3 < 0);
-    return (orientation1 > 0 && orientation2 > 0 && orientation3 > 0) ||
-           (orientation1 < 0 && orientation2 < 0 && orientation3 < 0) ||
-           (orientation1 == 0 && orientation2 != 0 && orientation3 != 0) ||
-           (orientation1 != 0 && orientation2 == 0 && orientation3 != 0) ||
-           (orientation1 != 0 && orientation2 != 0 && orientation3 == 0);
-    return (orientation1 > 0 && orientation2 > 0 && orientation3 > 0) || (orientation1 < 0 && orientation2 < 0 && orientation3 < 0);
 }

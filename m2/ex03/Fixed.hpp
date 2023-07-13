@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 20:55:14 by llion             #+#    #+#             */
-/*   Updated: 2023/07/11 22:49:48 by llion            ###   ########.fr       */
+/*   Updated: 2023/07/13 14:22:19 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ public:
 
 private:
 	int						_fixNumber;
-	static const int		_fract = 8;
+	static const int		_fract = 10;
 
 };
 
