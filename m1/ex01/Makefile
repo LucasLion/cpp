@@ -6,13 +6,13 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/06/18 18:21:37 by llion            ###   ########.fr        #
+#    Updated: 2023/07/14 16:06:06 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = zombieHorde
 CC   = c++
-CFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
 RM   = rm -f
 SRC = main.cpp Zombie.cpp zombieHorde.cpp
 
@@ -20,8 +20,11 @@ OBJ  = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
+%.o: %.cpp
+	$(CC) $(CXXFLAGS) -o $@ -c $<
+
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
 debug: $(OBJ)
 	$(CC) $(CFLAGS) -fsanitize=address -o $(NAME) $(OBJ)

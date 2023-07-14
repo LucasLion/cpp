@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 15:59:49 by llion             #+#    #+#             */
-/*   Updated: 2023/07/06 16:03:41 by llion            ###   ########.fr       */
+/*   Updated: 2023/07/14 16:20:25 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ std::string	replace_str(std::string line, std::size_t found, int size, char **ar
 int main(int argc, char **argv) {
 	if (argc == 4) {
 		std::ifstream	olliv(argv[1]);
-		std::ofstream	newFile(std::string(argv[1]) + ".replace");
+		std::ofstream	newFile;
 		std::string		line;
 		std::string		arg(argv[2]);
 		std::size_t		found;
 
 		if (olliv) {
+			newFile.open((std::string(argv[1]) + ".replace").c_str());
 			while (std::getline(olliv, line)) {
 				found = line.find(argv[2]);	
 				while (found != std::string::npos) {

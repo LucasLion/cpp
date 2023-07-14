@@ -6,25 +6,28 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/06/16 14:48:15 by llion            ###   ########.fr        #
+#    Updated: 2023/07/14 15:57:53 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = zombie
 CC   = c++
-CFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
 RM   = rm -f
 SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 
 OBJ  = $(SRC:.cpp=.o)
 
+%.o: %.cpp
+	$(CC) $(CXXFLAGS) -o $@ -c $<
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
 debug: $(OBJ)
-	$(CC) $(CFLAGS) -fsanitize=address -o $(NAME) $(OBJ)
+	$(CC) $(CXXFLAGS) -fsanitize=address -o $(NAME) $(OBJ)
 
 run:
 	@./$(NAME)

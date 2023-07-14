@@ -6,13 +6,13 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/07/06 10:11:16 by llion            ###   ########.fr        #
+#    Updated: 2023/07/14 16:20:49 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = harl 
 CC   = c++
-CFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -g3 -Wall -Wextra -Werror -std=c++98
 RM   = rm -f
 SRC = main.cpp Harl.cpp
 
@@ -20,11 +20,14 @@ OBJ  = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
+%.o: %.cpp
+	$(CC) $(CXXFLAGS) -o $@ -c $<
+
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CXXFLAGS) -o $(NAME) $(OBJ)
 
 debug: $(OBJ)
-	$(CC) $(CFLAGS) -fsanitize=address -o $(NAME) $(OBJ)
+	$(CC) $(CXXFLAGS) -fsanitize=address -o $(NAME) $(OBJ)
 
 run:
 	@./$(NAME)
