@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 15:03:50 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/13 17:22:02 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/14 17:34:53 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class ClapTrap {
 public:
 				ClapTrap( );
 				ClapTrap( const ClapTrap& source );
+				ClapTrap( const std::string name );
 	ClapTrap&	operator=( const ClapTrap& source );
 				~ClapTrap( );
 
@@ -37,9 +38,6 @@ public:
 	void		attack( const std::string& target );
 	void		takeDamage( unsigned int amount );
 	void		beRepaired( unsigned int amount );
-
-	// gestion des operators ou bien?
-	void		operator++( int );
 
 private:
 	std::string _name;

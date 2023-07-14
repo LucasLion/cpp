@@ -6,22 +6,34 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 15:01:33 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/13 17:22:04 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/14 17:42:57 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include <algorithm>
 
-ClapTrap::ClapTrap( ) { }
+ClapTrap::ClapTrap( ) {
+	std::cout << "Default constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap( const std::string name ) : _name(name), _health(10), _energy(10), _damage(0){
+	std::cout << "Constructor called" << std::endl;
+}
 
 ClapTrap::ClapTrap( const ClapTrap& source ) {
+	(void)source;
+	std::cout << "Copy constructor called" << std::endl;
 }
 
 ClapTrap&	ClapTrap::operator=( const ClapTrap& source ) {
+	(void)source;
 	return (*this);
 }
 
-ClapTrap::~ClapTrap( ) { }
+ClapTrap::~ClapTrap( ) {
+	std::cout << "Destructor called" << std::endl;
+}
 
 std::string	ClapTrap::getName( void ) const { return this->_name;} 
 
@@ -39,12 +51,15 @@ void	ClapTrap::setEnergy( int energy ) { this->_energy = energy; };
 
 void	ClapTrap::setDamage( int damage ) { this->_damage = damage; };
  
-void	attack( const std::string& target ) {
+void	ClapTrap::attack( const std::string& target ) {
+	std::cout << this->getName() << " attacks " << target << ", causing " << this->getDamage() << " points of damage!" << std::endl;
 }
 
-void	takeDamage( unsigned int amount ) {
+void	ClapTrap::takeDamage( unsigned int amount ) {
+	std::cout << this->getName() << " takes " << amount << " damages!" << std::endl;
 }
 
-void	beRepaired( unsigned int amount ) {
+void	ClapTrap::beRepaired( unsigned int amount ) {
+	std::cout << this->getName() << " gets " << amount << " health " << std::endl;
 }
 
