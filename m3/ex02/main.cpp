@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:34:24 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 14:44:32 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/16 14:48:31 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,8 @@ int main()
 	scav.guardGate();
 	scav.takeDamage(1);
 	scav.beRepaired(1);
-	scav.takeDamage(10);
-	for (int i = 0;i < 50;i++)
-		scav.attack("Mike");
+	for (int i = 0; i < 50; i++)
+		scav.takeDamage(10);
 	scav.beRepaired(100);
 	scav.attack("hose");
 	std::cout << "scav life: " << scav.getHealth() << std::endl;

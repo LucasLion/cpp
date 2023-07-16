@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:22:51 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 14:37:10 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/16 14:55:59 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ public:
 			~ScavTrap( );
 	void	attack( const std::string& target );
 	void	guardGate( void ) const;
+
 private:
 	std::string	_name;
 	int			_health;

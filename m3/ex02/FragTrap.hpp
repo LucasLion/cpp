@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/16 13:22:51 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 14:37:10 by llion@student    ###   ########.fr       */
+/*   Created: 2023/07/16 14:36:15 by llion@student     #+#    #+#             */
+/*   Updated: 2023/07/16 14:56:00 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class FragTrap : public ClapTrap {
 
 public:
-			ScavTrap( );
-			ScavTrap( std::string name );
-	void	operator=( const ScavTrap& source );
-			~ScavTrap( );
+			FragTrap( );
+			FragTrap( std::string name );
+	void	operator=( const FragTrap& src );
+			~FragTrap( void );
 	void	attack( const std::string& target );
-	void	guardGate( void ) const;
+	void	highFivesGuys( void );
+
 private:
 	std::string	_name;
 	int			_health;
 	int			_energy;
 	int			_damage;
 };
-
 #endif
