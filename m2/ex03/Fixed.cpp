@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 23:28:48 by llion             #+#    #+#             */
-/*   Updated: 2023/07/12 10:49:28 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/16 11:59:08 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ Fixed::Fixed( float const num ) { this->_fixNumber = roundf(num * (1 << Fixed::_
 Fixed::Fixed( const Fixed& source ) { *this = source; }
 
 Fixed&	Fixed::operator=( const Fixed& source ) {
-	if (this != &source) { this->_fixNumber = source.getRawBits(); }
+	if (this != &source) {
+		std::cout << "Copy assignment operator called" << std::endl;
+		this->_fixNumber = source.getRawBits();
+	}
 	return (*this);
 }
 

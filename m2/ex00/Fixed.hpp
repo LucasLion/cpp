@@ -6,7 +6,7 @@
 /*   By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 20:55:14 by llion             #+#    #+#             */
-/*   Updated: 2023/07/07 10:54:08 by llion            ###   ########.fr       */
+/*   Updated: 2023/07/16 11:57:44 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
 						Fixed();
 						~Fixed();
 						Fixed( Fixed& source );
-	void				operator=( Fixed &source );
+	Fixed&				operator=( Fixed &source );
 	int					getRawBits( void ) const;
 	void				setRawBits( int const raw );
 
