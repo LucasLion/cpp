@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:27:42 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 14:30:54 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/16 17:17:34 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 ScavTrap::ScavTrap() {
 	std::cout << "\033[32mScavTrap Default constructor called\033[0m" << std::endl;
+	this->setName("default ScavTrap");
+	this->setHealth(100);
+	this->setEnergy(50);
+	this->setDamage(20);
 }
 
 ScavTrap::ScavTrap( std::string name ) : ClapTrap(name) {
@@ -22,16 +26,15 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap(name) {
 	this->setHealth(100);
 	this->setEnergy(50);
 	this->setDamage(20);
-	std::cout << "------->" << this->getName() << std::endl;
-	std::cout << "------->" << this->getDamage() << std::endl;
 }
 
-void	ScavTrap::operator=( const ScavTrap& source ) {
+ScavTrap&	ScavTrap::operator=( const ScavTrap& source ) {
 	std::cout << "\033[32mScavTrap Assignation operator called\033[0m" << std::endl;
 	this->setName(source.getName());
 	this->setHealth(source.getHealth());
 	this->setEnergy(source.getEnergy());
 	this->setDamage(source.getDamage());
+	return (*this);
 }
 
 ScavTrap::~ScavTrap() {

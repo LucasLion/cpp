@@ -6,11 +6,11 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/07/16 13:26:57 by llion@student    ###   ########.fr        #
+#    Updated: 2023/07/16 15:09:15 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= ./claptrap
+NAME	= scavtrap
 CC   	= c++
 CXXFLAGS= -ggdb3 -Wall -Wextra -Werror -std=c++98
 RM		= rm -f

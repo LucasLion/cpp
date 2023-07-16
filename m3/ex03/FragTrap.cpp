@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 14:51:12 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 17:18:00 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/16 16:30:01 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 FragTrap::FragTrap() {
 	std::cout << "\033[32mFragTrap Default constructor called\033[0m" << std::endl;
-	this->setName("Default FragTrap");
+	this->setName("default FragTrap");
 	this->setHealth(100);
 	this->setEnergy(100);
 	this->setDamage(30);

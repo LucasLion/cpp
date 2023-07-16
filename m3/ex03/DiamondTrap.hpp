@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/16 14:36:15 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 17:18:39 by llion@student    ###   ########.fr       */
+/*   Created: 2023/07/16 15:32:06 by llion@student     #+#    #+#             */
+/*   Updated: 2023/07/16 17:43:28 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 #include "ClapTrap.hpp"
-#include <cstdlib>
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class FragTrap : public ClapTrap {
+class DiamondTrap : virtual public ScavTrap, virtual public FragTrap {
 
 public:
-				FragTrap( );
-				FragTrap( std::string name );
-	FragTrap&	operator=( const FragTrap& src );
-				~FragTrap( void );
-	void		attack( const std::string& target );
-	void		highFivesGuys( void ) const;
+					DiamondTrap( );
+					DiamondTrap( std::string name );
+	DiamondTrap&	operator=( const DiamondTrap& rhs );
+					DiamondTrap( DiamondTrap const & src );
+					~DiamondTrap( );
+	void			whoAmI( void );
 
 private:
-	std::string	_name;
-	int			_health;
-	int			_energy;
-	int			_damage;
+	std::string _name;
 };
+
 #endif
+
+

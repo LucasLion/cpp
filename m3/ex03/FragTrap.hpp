@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 14:36:15 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 17:18:39 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/16 15:42:13 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
-#include <cstdlib>
 
 class FragTrap : public ClapTrap {
 

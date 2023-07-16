@@ -6,14 +6,14 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 15:01:33 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 14:50:04 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/16 16:29:03 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <algorithm>
 
-ClapTrap::ClapTrap( ) {
+ClapTrap::ClapTrap( ) : _name("default ClapTrap"), _health(10), _energy(10), _damage(0){
 	std::cout << "\033[32mClapTrap Default constructor called\033[0m" << std::endl;
 }
 

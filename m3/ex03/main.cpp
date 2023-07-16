@@ -6,11 +6,12 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:34:24 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 16:27:30 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/16 17:32:06 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "DiamondTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
@@ -22,12 +23,9 @@
 
 int main()
 {
-	ClapTrap clap("ted");
+	ClapTrap clap("clap");
 	ClapTrap clap_copy;
 	clap_copy = clap;
-	ClapTrap clap_copy2(clap);
-	ScavTrap scav("scav");
-	FragTrap frag("frag");
 
 	std::cout << std::endl;
 	std::cout << "clap name: " << B << clap.getName() << RE << std::endl;
@@ -55,12 +53,20 @@ int main()
 	clap.beRepaired(10);
 	clap.attack("Mike");
 
+	std::cout << std::endl;
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << std::endl;
+	ClapTrap clap_copy2(clap);
 	clap_copy2.attack("Sebastian");
 	clap_copy2.takeDamage(9);
 	clap_copy2.takeDamage(9);
 	clap_copy2.beRepaired(100);
+
+	std::cout << std::endl;
+	std::cout << "--------------------------------------" << std::endl;
 	std::cout << std::endl;
 
+	ScavTrap scav("scav");
 	std::cout << std::endl;
 	std::cout << "scav name: " << B << scav.getName() << RE << std::endl;
 	std::cout << "scav health: " << B << scav.getHealth() << RE << std::endl;
@@ -80,6 +86,11 @@ int main()
 	std::cout << "scav life: " << scav.getHealth() << std::endl;
 
 	std::cout << std::endl;
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << std::endl;
+
+	FragTrap frag("frag");
+	std::cout << std::endl;
 	std::cout << "frag name: " << B << frag.getName() << RE << std::endl;
 	std::cout << "frag health: " << B << frag.getHealth() << RE << std::endl;
 	std::cout << "frag energy: " << B << frag.getEnergy() << RE << std::endl;
@@ -98,6 +109,11 @@ int main()
 	std::cout << "frag life: " << frag.getHealth() << std::endl;
 	frag.beRepaired(100);
 	frag.attack("hose");
+	
+	std::cout << std::endl;
+	std::cout << "--------------------------------------" << std::endl;
+	std::cout << std::endl;
 
+	DiamondTrap diamond;
 	return (0);
 }

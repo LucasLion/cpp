@@ -6,18 +6,18 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 15:01:33 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 13:11:37 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/16 17:15:53 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <algorithm>
 
-ClapTrap::ClapTrap( ) {
+ClapTrap::ClapTrap( ) : _name("default ClapTrap"), _health(10), _energy(10), _damage(0) {
 	std::cout << "\033[32mDefault constructor called\033[0m" << std::endl;
 }
 
-ClapTrap::ClapTrap( const std::string name ) : _name(name), _health(10), _energy(10), _damage(0){
+ClapTrap::ClapTrap( const std::string name ) : _name(name), _health(10), _energy(10), _damage(0) {
 	std::cout << "\033[32mConstructor called\033[0m" << std::endl;
 }
 
@@ -38,7 +38,7 @@ ClapTrap&	ClapTrap::operator=( const ClapTrap& source ) {
 }
 
 ClapTrap::~ClapTrap( ) {
-	std::cout << "\033[31mDestructor called\033[0m" << std::endl;
+	std::cout << "\033[31mClapTrap Destructor called\033[0m" << std::endl;
 }
 
 std::string	ClapTrap::getName( void ) const { return this->_name;} 
