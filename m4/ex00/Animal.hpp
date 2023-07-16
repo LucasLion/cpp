@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/16 13:22:51 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 17:58:53 by llion@student    ###   ########.fr       */
+/*   Created: 2023/07/16 18:18:27 by llion@student     #+#    #+#             */
+/*   Updated: 2023/07/16 19:46:23 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-#include "ClapTrap.hpp"
+#include <iostream>
 
-class ScavTrap : virtual public ClapTrap {
+#define RE "\033[0m"
+#define G "\033[32m"
+#define Y "\033[33m"
+#define R "\033[31m"
+
+class Animal {
 
 public:
-				ScavTrap( );
-				ScavTrap( std::string name );
-	ScavTrap&	operator=( const ScavTrap& source );
-				~ScavTrap( );
-	void		attack( const std::string& target );
-	void		guardGate( void ) const;
+				Animal( );
+				Animal( const Animal& src );
+	Animal&		operator=( const Animal& src );
+				~Animal( );	
 
-private:
-	std::string	_name;
-	int			_health;
-	int			_energy;
-	int			_damage;
+	std::string	getType( void ) const;
+	void		makeSound( void ) const;
+
+protected:
+	std::string	type;
+
+
 };
 
 #endif

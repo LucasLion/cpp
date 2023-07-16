@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/16 13:22:51 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 17:58:53 by llion@student    ###   ########.fr       */
+/*   Created: 2023/07/16 18:59:52 by llion@student     #+#    #+#             */
+/*   Updated: 2023/07/16 19:53:53 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
 
-class ScavTrap : virtual public ClapTrap {
+class Dog : public Animal {
 
 public:
-				ScavTrap( );
-				ScavTrap( std::string name );
-	ScavTrap&	operator=( const ScavTrap& source );
-				~ScavTrap( );
-	void		attack( const std::string& target );
-	void		guardGate( void ) const;
+			Dog( );
+			Dog( const Dog& src );
+	Dog&	operator=( const Dog& src );
+			~Dog( );
+	void	makeSound( ) const;
 
-private:
-	std::string	_name;
-	int			_health;
-	int			_energy;
-	int			_damage;
 };
 
 #endif
