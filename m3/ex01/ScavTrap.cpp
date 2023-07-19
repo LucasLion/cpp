@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:27:42 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 17:17:34 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/19 20:17:31 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,3 +56,4 @@ void	ScavTrap::guardGate( void ) const {
 	std::cout << "ScavTrap " << this->getName() << " have enterred in \033[32mGate keeper\033[0m mode" << std::endl;
 }
 
+# include <SDL/SDL.h>
