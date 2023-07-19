@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 18:28:11 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/19 18:12:29 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/16 20:05:56 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int main(void) {
 	animal2 = animal;	
 	std::cout << animal.getType() << std::endl;
 	std::cout << animal2.getType() << std::endl;
-	i->makeSound();
-	j->makeSound();
 
 	delete meta;
 	delete j;
