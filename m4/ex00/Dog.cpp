@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 19:03:03 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 19:57:28 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/21 15:21:47 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 Dog::Dog( ) : Animal() {
 	std::cout << G << "Dog default constructor called" << RE << std::endl;
+	this->setType("Dog");
 }
 
 Dog::Dog( const Dog& src ) : Animal() {
@@ -36,3 +37,5 @@ Dog::~Dog( ) {
 void	Dog::makeSound( ) const {
 	std::cout << "Wouf wouf" << std::endl;
 }
+
+void	Dog::setType( std::string type ) { this->type = type; }

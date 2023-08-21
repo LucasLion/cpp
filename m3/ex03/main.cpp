@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:34:24 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/18 13:05:52 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/21 14:21:31 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ int main()
 	argentino.highFivesGuys();
 	argentino.attack("fred");
 
+	argentino.whoAmI();
 	}
 	return (0);
 }

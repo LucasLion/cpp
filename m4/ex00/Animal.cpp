@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 18:11:24 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/20 15:06:07 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/21 12:45:53 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Animal::Animal( const Animal& src ) {
 Animal&	Animal::operator=( const Animal& src ) {
 	std::cout << G << "Animal assignation operator called" << RE << std::endl;
 	if (this != &src)
-		this-> type = src.type;
+		this->type = src.type;
 	return (*this);
 }
 

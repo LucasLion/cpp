@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 19:01:50 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 19:51:05 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/21 15:20:10 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	Cat&	operator=( const Cat& src );
 			~Cat( );
 	void	makeSound( ) const;
-
+	void	setType( std::string type );
 };
 
 #endif

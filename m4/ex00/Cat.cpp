@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 19:04:38 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 19:57:21 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/21 15:20:46 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 Cat::Cat( ) : Animal() {
 	std::cout << G << "Cat default constructor called" << RE << std::endl;
+	this->setType("Cat");
 }
 
 Cat::Cat( const Cat& src ) : Animal() {
@@ -36,3 +37,5 @@ Cat::~Cat( ) {
 void	Cat::makeSound( ) const {
 	std::cout << "Miaouuuu" << std::endl;
 }
+
+void	Cat::setType( std::string type ) { this->type = type; }

@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 18:18:27 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 19:46:23 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/21 15:50:14 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,16 @@
 class Animal {
 
 public:
-				Animal( );
-				Animal( const Animal& src );
-	Animal&		operator=( const Animal& src );
-				~Animal( );	
+					Animal( );
+					Animal( const Animal& src );
+	Animal&			operator=( const Animal& src );
+	virtual			~Animal( );	
 
-	std::string	getType( void ) const;
-	void		makeSound( void ) const;
+	std::string		getType( void ) const;
+	virtual void	makeSound( void ) const;
 
 protected:
 	std::string	type;
-
 
 };
 
