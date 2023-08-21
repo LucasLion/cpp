@@ -6,19 +6,20 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 14:51:12 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 16:30:01 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/18 12:28:38 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ClapTrap.hpp"
 
-FragTrap::FragTrap() {
+FragTrap::FragTrap() : ClapTrap("default_clap_name") {
 	std::cout << "\033[32mFragTrap Default constructor called\033[0m" << std::endl;
-	this->setName("default FragTrap");
 	this->setHealth(100);
+	this->_health = 100;
 	this->setEnergy(100);
 	this->setDamage(30);
+	this->_damage = 30;
 }
 
 FragTrap::FragTrap( std::string name ) : ClapTrap(name) {
@@ -41,17 +42,16 @@ FragTrap::~FragTrap() {
 	std::cout << "\033[31mFragTrap Destructor called\033[0m" << std::endl;
 }
 
-void	FragTrap::attack(const std::string& target ) {
-	if (this->getEnergy() > 0 && this->getHealth() > 0) {
-		std::cout << "FragTrap " << this->getName() << " attacks " << target << ", causing \033[31m" << this->getDamage() << "\033[0m points of damages" << std::endl;
-		this->setEnergy(std::max(this->getEnergy() - 1, 0));
-	}
-	else if (this->getHealth() <= 0)
-		std::cout << "FragTrap " << this->getName() << " tries to attack but " << this->getName() << " is \033[31mdead\033[0m" << std::endl;
-	else
-		std::cout << "FragTrap " << this->getName() << " tries to attack but " << this->getName() << " is \033[31mout of energy \033[0m" << std::endl;
-
-}
+//void	FragTrap::attack(const std::string& target ) {
+//	if (this->getEnergy() > 0 && this->getHealth() > 0) {
+//		std::cout << "FragTrap " << this->getName() << " attacks " << target << ", causing \033[31m" << this->getDamage() << "\033[0m points of damages" << std::endl;
+//		this->setEnergy(std::max(this->getEnergy() - 1, 0));
+//	}
+//	else if (this->getHealth() <= 0)
+//		std::cout << "FragTrap " << this->getName() << " tries to attack but " << this->getName() << " is \033[31mdead\033[0m" << std::endl;
+//	else
+//		std::cout << "FragTrap " << this->getName() << " tries to attack but " << this->getName() << " is \033[31mout of energy \033[0m" << std::endl;
+//}
 
 void	FragTrap::highFivesGuys( void ) const {
 	std::cout << "FragTrap " << this->getName() << " requests a \033[32mHigh five\033[0m" << std::endl;

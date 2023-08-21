@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 15:32:06 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 17:43:28 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/17 14:05:20 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-class DiamondTrap : virtual public ScavTrap, virtual public FragTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
 
 public:
 					DiamondTrap( );
@@ -26,6 +26,7 @@ public:
 					DiamondTrap( DiamondTrap const & src );
 					~DiamondTrap( );
 	void			whoAmI( void );
+	std::string		getName( void ) const;
 
 private:
 	std::string _name;

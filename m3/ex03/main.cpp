@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:34:24 by llion@student     #+#    #+#             */
-/*   Updated: 2023/07/16 17:32:06 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/07/18 13:05:52 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 int main()
 {
+	{
 	ClapTrap clap("clap");
 	ClapTrap clap_copy;
 	clap_copy = clap;
@@ -65,7 +66,9 @@ int main()
 	std::cout << std::endl;
 	std::cout << "--------------------------------------" << std::endl;
 	std::cout << std::endl;
+	}
 
+	{
 	ScavTrap scav("scav");
 	std::cout << std::endl;
 	std::cout << "scav name: " << B << scav.getName() << RE << std::endl;
@@ -89,6 +92,8 @@ int main()
 	std::cout << "--------------------------------------" << std::endl;
 	std::cout << std::endl;
 
+	}
+	{
 	FragTrap frag("frag");
 	std::cout << std::endl;
 	std::cout << "frag name: " << B << frag.getName() << RE << std::endl;
@@ -114,6 +119,28 @@ int main()
 	std::cout << "--------------------------------------" << std::endl;
 	std::cout << std::endl;
 
+	}
+	{
 	DiamondTrap diamond;
+	std::cout << "Diamond name: " << B << diamond.getName() << RE << std::endl;
+	std::cout << "Diamond health: " << B << diamond.getHealth() << RE << std::endl;
+	std::cout << "Diamond energy: " << B << diamond.getEnergy() << RE << std::endl;
+	std::cout << "Diamond damages: " << B << diamond.getDamage() << RE << std::endl;
+	diamond.whoAmI();
+	diamond.guardGate();
+	diamond.highFivesGuys();
+	diamond.attack("philoctet");
+
+	DiamondTrap argentino("argentino");
+	std::cout << "Argentino name: " << B << argentino.getName() << RE << std::endl;
+	std::cout << "Argentino health: " << B << argentino.getHealth() << RE << std::endl;
+	std::cout << "Argentino energy: " << B << argentino.getEnergy() << RE << std::endl;
+	std::cout << "Argentino damages: " << B << argentino.getDamage() << RE << std::endl;
+	argentino.whoAmI();
+	argentino.guardGate();
+	argentino.highFivesGuys();
+	argentino.attack("fred");
+
+	}
 	return (0);
 }
