@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 16:34:24 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/21 14:21:31 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/22 17:02:52 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,20 @@ int main()
 	argentino.attack("fred");
 
 	argentino.whoAmI();
+	}
+	{
+	FragTrap frag("frag");
+	std::cout << "frag name: " << B << frag.getName() << RE << std::endl;
+	std::cout << "frag health: " << B << frag.getHealth() << RE << std::endl;
+	std::cout << "frag energy: " << B << frag.getEnergy() << RE << std::endl;
+	std::cout << "frag damages: " << B << frag.getDamage() << RE << std::endl;
+	}
+	{
+	ScavTrap frag("scav");
+	std::cout << "scav name: " << B << frag.getName() << RE << std::endl;
+	std::cout << "scav health: " << B << frag.getHealth() << RE << std::endl;
+	std::cout << "scav energy: " << B << frag.getEnergy() << RE << std::endl;
+	std::cout << "scav damages: " << B << frag.getDamage() << RE << std::endl;
 	}
 	return (0);
 }

@@ -1,27 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 16:33:44 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/22 17:14:41 by llion@student    ###   ########.fr       */
+/*   Created: 2023/08/22 17:15:04 by llion@student     #+#    #+#             */
+/*   Updated: 2023/08/22 17:16:29 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#include "AMateria.hpp"
 
-# include <iostream>
-
-class AMateria {
-
-public:
-	AMateria();
-	AMateria(std::string const& type);
-	AMateria(AMateria const& src);
-	virtual ~AMateria();
-};
-
-#endif
+int main() {
+	std::cout << "coucou" << std::endl;	
+}
