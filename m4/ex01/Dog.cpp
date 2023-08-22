@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 19:03:03 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/21 15:21:47 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/22 16:08:34 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 Dog::Dog( ) : Animal() {
 	std::cout << G << "Dog default constructor called" << RE << std::endl;
 	this->setType("Dog");
+	brain = new Brain;
 }
 
 Dog::Dog( const Dog& src ) : Animal() {
@@ -31,6 +32,7 @@ Dog&	Dog::operator=( const Dog& src ) {
 }
 
 Dog::~Dog( ) {
+	delete brain;
 	std::cout << R << "Dog destructor called" << RE << std::endl;
 }
 

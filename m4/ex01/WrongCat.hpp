@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 19:01:50 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/21 15:51:12 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/22 11:58:12 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 class WrongCat : public WrongAnimal {
 
 public:
-				WrongCat( );
+				WrongCat( void );
 				WrongCat( const WrongCat& src );
 	WrongCat&	operator=( const WrongCat& src );
-				~WrongCat( );
-	void		makeSound( ) const;
+				~WrongCat( void );
+	void		makeSound( void ) const;
 	void		setType( std::string type );
 };
 

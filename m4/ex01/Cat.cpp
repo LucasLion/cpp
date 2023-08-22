@@ -6,21 +6,25 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 19:04:38 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/21 15:20:46 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/22 16:07:56 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
+#include <algorithm>
 
 Cat::Cat( ) : Animal() {
 	std::cout << G << "Cat default constructor called" << RE << std::endl;
 	this->setType("Cat");
+	brain = new Brain();
 }
 
 Cat::Cat( const Cat& src ) : Animal() {
 	std::cout << G << "Cat copy constructor called" << RE << std::endl;
 	*this = src;
+	this->brain = new Brain();
+	this->brain = src.brain;
 }
 
 Cat&	Cat::operator=( const Cat& src ) {
@@ -31,6 +35,7 @@ Cat&	Cat::operator=( const Cat& src ) {
 }
 
 Cat::~Cat( ) {
+	delete brain;
 	std::cout << R << "Cat destructor called" << RE << std::endl;
 }
 

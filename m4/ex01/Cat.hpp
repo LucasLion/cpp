@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 19:01:50 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/21 15:20:10 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/22 11:57:39 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 # define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal {
 
 public:
-			Cat( );
+			Cat( void );
 			Cat( const Cat& src );
 	Cat&	operator=( const Cat& src );
-			~Cat( );
-	void	makeSound( ) const;
+			~Cat( void );
+	void	makeSound( void ) const;
 	void	setType( std::string type );
+private:
+	Brain*	brain;
 };
 
 #endif
