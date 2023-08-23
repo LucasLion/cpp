@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 14:30:56 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/23 16:16:49 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/23 21:01:30 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ const std::string&	Character::getName( void ) const {
 
 void	Character::equip( AMateria* m ) {
 	int	i = 0;
+
+	std::cout << "Materia Type : " << m->getType() << std::endl;
 	if (!m) {
 		std::cout << "There is no materia to equip" << std::endl;
+		return ;
 	}
 	while (this->_inventory[i] && i < 4)
 		i++;
@@ -58,12 +61,38 @@ void	Character::equip( AMateria* m ) {
 }
 
 void	Character::unequip( int idx ) {
-	(void)idx;
-	return ;
+	if (idx < 0 || idx > 3) {
+		std::cout << "Index out of range" << std::endl;
+	}
+	else if (!this->_inventory[idx]) {
+		std::cout << "There is no materia to unequip" << std::endl;
+	}
+	else {
+		AMateria* tmp = this->_inventory[idx];
+		this->_inventory[idx] = NULL;
+		std::cout << "Unequipped " << tmp->getType() << " Materia from slot " << idx << std::endl;
+	}
 }
 
 void	Character::use( int idx, ICharacter& target ) {
-	(void)idx;
-	(void)target;
+	if (idx >= 0 && idx < 3) {
+		if (this->_inventory[idx]) {
+			std::cout << this->getName() << " used " << this->_inventory[idx]->getType() 
+				<< "Materia on " << target.getName() << std::endl;
+			delete this->_inventory[idx];		
+		}
+		else {
+			std::cout << this->getName() << " No Materia in this slot" << std::endl;
+		}
+	}
 	return ;
 }
+
+AMateria* Character::getInventory( void ) const {
+	return (this->_inventory[0]);
+}
+
+AMateria*	Character::dropMateria( int idx ) {
+	return (this->_inventory[idx]);
+}
+
