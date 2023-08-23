@@ -6,15 +6,15 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/08/22 16:33:37 by llion@student    ###   ########.fr        #
+#    Updated: 2023/08/23 16:17:51 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= materias
+NAME	= materia
 CC   	= c++
 CXXFLAGS= -ggdb3 -Wall -Wextra -Werror -std=c++98 -Wshadow
 RM		= rm -f
-SRC		= main.cpp AMateria.cpp
+SRC		= AMateria.cpp Ice.cpp Cure.cpp Character.cpp main.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -30,6 +30,9 @@ debug: $(OBJ)
 
 run:
 	@./$(NAME)
+
+leaks:
+	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
 clean:
 	$(RM) $(OBJ)
