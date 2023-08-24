@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:15:04 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/23 20:55:48 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/24 18:19:21 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,51 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "Character.hpp"
+#include "MateriaSource.hpp"
+
+// TODO regler le probleme de leak des materias au sol
 
 int main( void ) {
 	Character*	joe = new Character("Joe");
-	Ice* ice = new Ice();
+	Character*	enemy = new Character("Enemy");
 
+	AMateria*	ice = new Ice();
+	AMateria*	cure = new Cure();
+	AMateria* 	ice2 = new Ice();
+	AMateria* 	ice3 = new Ice();
+	Cure*		cure2 = new Cure();
+
+	*ice3 = *ice2;
 	joe->equip(ice);
-	joe->equip(ice);
-	joe->equip(ice);
-	joe->equip(ice);
-	joe->equip(ice);
-	std::cout << "Joe's inventory" << std::endl;
-	for (int i = 0; i < 4; i++) {
-		std::cout << "inventory[" << i << "] = ";
-		if (!joe->getInventory())
-			std::cout << "NULL" << std::endl;
-		else
-			std::cout << joe->getInventory()->getType() << std::endl;
-	}
+	joe->equip(cure);
+	joe->equip(cure2);
+	joe->equip(ice3);
+	joe->unequip(3);
+
+	std::cout << "----------Character copy constructor-----------" << std::endl;
+	Character*	jack = new Character("jack");
+	jack->displayInventory();
+	*jack = *joe;
+	jack->displayInventory();
+
+	std::cout << "----------Use materias-----------" << std::endl;
+	joe->use(1, *joe);
+	joe->use(2, *enemy);
+	joe->use(3, *enemy);
+	joe->displayInventory();
+
+	std::cout << "----------display inventory-----------" << std::endl;
+	joe->displayInventory();
+
+	MateriaSource*	book = new MateriaSource;	
+
+	book->learnMateria(cure);
+	std::cout << "book : " << std::endl;
+	book->displayBook();
 	delete joe;
+	delete jack;	
+	delete enemy;
+	return (0);
 }
 //int main() {
 //	std::cout << "---------------------" << std::endl;

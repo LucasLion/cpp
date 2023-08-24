@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 09:17:46 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/23 14:15:54 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/24 17:27:18 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Ice : public AMateria {
 
 public:
 						Ice( );
-						Ice( Ice const& src );
+						Ice( const AMateria& src );
 						~Ice( );
 	Ice&				operator=( const Ice& src );
 	std::string	const&	getType( void ) const;

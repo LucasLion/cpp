@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 11:45:45 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/23 16:21:52 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/24 17:27:46 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 
-Cure::Cure( void ) : _type("cure") {
+Cure::Cure( void ) : AMateria("cure"), _type("cure") {
 	std::cout << G << "Cure default constructor called" << RE << std::endl;
+}
+
+Cure::Cure( const AMateria& src ) {
+	std::cout << G << "Cure copy constructor called" << RE << std::endl;
+	if (this != &src)
+		*this = src;
 }
 
 Cure::~Cure( void ) {
@@ -38,8 +44,7 @@ Cure*	Cure::clone( void ) const {
 }
 
 void	Cure::use( ICharacter& target ) {
-	(void)target;
-	std::cout << Y << "* heals " << "target" << "’s wounds *" << RE << std::endl;
+	std::cout << Y << "* heals " << target.getName() << "’s wounds *" << RE << std::endl;
 }
 
 

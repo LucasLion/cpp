@@ -6,7 +6,8 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:33:44 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/23 13:33:21 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/24 15:17:54 by llion@student    ###   ########.fr       */
+			//delete this->_inventory[idx];		
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +32,14 @@ public:
 	virtual				~AMateria( void );
 	AMateria&			operator=( const AMateria& src );
 	std::string const&	getType( ) const;
+	void				setType( const std::string& type );
 	virtual AMateria*	clone( ) const = 0;
-	virtual void		use( ICharacter& target );
+	virtual void		use( ICharacter& target ); 
 
 protected:
 	std::string _type;
 };
+
+std::ostream&	operator<<( std::ostream& os, const AMateria& src );
 
 #endif
