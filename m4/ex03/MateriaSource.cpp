@@ -6,18 +6,19 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:41:02 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/24 18:19:15 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/24 18:26:42 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+#include "IMateriaSource.hpp"
 #include "AMateria.hpp"
 
-MateriaSource::MateriaSource( void ) {
+MateriaSource::MateriaSource( void ) : IMateriaSource() {
 	std::cout << "MateriaSource created" << std::endl;
 }
 
-MateriaSource::MateriaSource( const MateriaSource& src ) {
+MateriaSource::MateriaSource( const MateriaSource& src ) : IMateriaSource() {
 	std::cout << "MateriaSource copy constructor called" << std::endl;
 	*this = src;
 }
@@ -36,18 +37,6 @@ MateriaSource & MateriaSource::operator=(const MateriaSource& src)
 
 MateriaSource::~MateriaSource( void ) {
 	std::cout << "MateriaSource destructor called" << std::endl;
-}
-
-// TODO 
-// getType segfault ici
-
-void	MateriaSource::displayBook( void ) {
-	for (int i = 0; i < 4; i++) {
-		if (this->_book[i])
-			std::cout << "Slot " << i << ": " << this->_book[i]->getType() << std::endl;
-		else
-			std::cout << "Slot " << i << ": Empty" << std::endl;
-	}
 }
 
 void	MateriaSource::learnMateria( AMateria* m ) {
