@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:41:02 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/24 18:26:42 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/25 12:44:39 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 MateriaSource::MateriaSource( void ) : IMateriaSource() {
 	std::cout << "MateriaSource created" << std::endl;
+	for(int i = 0; i < 4; i++)
+		this->_book[i] = NULL;
 }
 
 MateriaSource::MateriaSource( const MateriaSource& src ) : IMateriaSource() {
@@ -37,6 +39,11 @@ MateriaSource & MateriaSource::operator=(const MateriaSource& src)
 
 MateriaSource::~MateriaSource( void ) {
 	std::cout << "MateriaSource destructor called" << std::endl;
+	for(int i = 0; i < 4; i++)
+	{
+		if (this->_book[i])
+			delete this->_book[i];
+	}
 }
 
 void	MateriaSource::learnMateria( AMateria* m ) {
@@ -48,8 +55,8 @@ void	MateriaSource::learnMateria( AMateria* m ) {
 		std::cout << "Book full" << std::endl;
 		return ;
 	}
-	this->_book[i] = m;
 	std::cout << "New Materia learned" << std::endl;
+	this->_book[i] = m;
 }
 
 AMateria*	MateriaSource::createMateria( const std::string& type ) {

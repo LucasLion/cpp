@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:15:04 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/25 10:30:21 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/25 13:12:00 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,47 @@
 #include "MateriaSource.hpp"
 #include "IMateriaSource.hpp"
 
+/*
+int main()
+{
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* m1;
+	m1 = src->createMateria("ice");
+	me->equip(m1);
+	m1 = src->createMateria("cure");
+	me->equip(m1);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
+	return 0;
+}
+*/
 // TODO regler le probleme de leak des materias au sol
 int main( void ) {
-	Character*	joe = new Character("Joe");
-	Character*	enemy = new Character("Enemy");
+	MateriaSource*	book = new MateriaSource();
+	Character*		joe = new Character("Joe");
+	Character*		enemy = new Character("Enemy");
 
-	AMateria*	ice = new Ice();
-	AMateria*	cure = new Cure();
-	AMateria* 	ice2 = new Ice();
-	AMateria* 	ice3 = new Ice();
-	Cure*		cure2 = new Cure();
+	book->learnMateria(new Ice());
+	book->learnMateria(new Cure());
+		
+	AMateria* m1 = book->createMateria("ice");
+	AMateria* m2 = book->createMateria("cure");
+	AMateria* m3 = book->createMateria("ice");
+	AMateria* m4 = book->createMateria("cure");
 
-
-	*ice3 = *ice2;
-	
-	joe->equip(ice);
-	joe->equip(cure);
-	joe->equip(cure2);
-	joe->equip(ice3);
-	joe->unequip(3);
+	joe->equip(m1);
+	joe->equip(m2);
+	joe->equip(m3);
+	joe->equip(m4);
+	joe->unequip(2);
+	delete m3;
 
 	std::cout << "----------Character copy constructor-----------" << std::endl;
 	Character*	jack = new Character("jack");
@@ -44,21 +66,16 @@ int main( void ) {
 	jack->displayInventory();
 
 	std::cout << "----------Use materias-----------" << std::endl;
-	joe->use(1, *joe);
-	joe->use(2, *enemy);
-	joe->use(3, *enemy);
-	joe->displayInventory();
-
+	joe->use(0, *joe);
+	joe->use(1, *enemy);
+	jack->use(1, *joe);
 	std::cout << "----------display inventory-----------" << std::endl;
 	joe->displayInventory();
+	jack->displayInventory();
 
-	MateriaSource*	book = new MateriaSource;	
-
-	book->learnMateria(cure);
+	
 	std::cout << "book : " << std::endl;
 	delete book;
-	delete ice3;
-	delete ice2;
 	delete joe;
 	delete jack;	
 	delete enemy;
@@ -102,23 +119,4 @@ int main( void ) {
 //
 //
 //	return (0);
-//}
-//int main()
-//{
-//	IMateriaSource* src = new MateriaSource();
-//	src->learnMateria(new Ice());
-//	src->learnMateria(new Cure());
-//	ICharacter* me = new Character("me");
-//	AMateria* tmp;
-//	tmp = src->createMateria("ice");
-//	me->equip(tmp);
-//	tmp = src->createMateria("cure");
-//	me->equip(tmp);
-//	ICharacter* bob = new Character("bob");
-//	me->use(0, *bob);
-//	me->use(1, *bob);
-//	delete bob;
-//	delete me;
-//	delete src;
-//	return 0;
 //}
