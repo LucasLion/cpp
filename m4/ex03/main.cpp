@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:15:04 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/25 09:29:24 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/25 10:30:21 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,6 @@
 #include "IMateriaSource.hpp"
 
 // TODO regler le probleme de leak des materias au sol
-//int main()
-//{
-//	IMateriaSource* src = new MateriaSource();
-//	src->learnMateria(new Ice());
-//	src->learnMateria(new Cure());
-//	ICharacter* me = new Character("me");
-//	AMateria* tmp;
-//	tmp = src->createMateria("ice");
-//	me->equip(tmp);
-//	tmp = src->createMateria("cure");
-//	me->equip(tmp);
-//	ICharacter* bob = new Character("bob");
-//	me->use(0, *bob);
-//	me->use(1, *bob);
-//	delete bob;
-//	delete me;
-//	delete src;
-//	return 0;
-//}
 int main( void ) {
 	Character*	joe = new Character("Joe");
 	Character*	enemy = new Character("Enemy");
@@ -55,7 +36,6 @@ int main( void ) {
 	joe->equip(cure2);
 	joe->equip(ice3);
 	joe->unequip(3);
-	joe->putMateriaOnTheGround(3);
 
 	std::cout << "----------Character copy constructor-----------" << std::endl;
 	Character*	jack = new Character("jack");
@@ -76,6 +56,9 @@ int main( void ) {
 
 	book->learnMateria(cure);
 	std::cout << "book : " << std::endl;
+	delete book;
+	delete ice3;
+	delete ice2;
 	delete joe;
 	delete jack;	
 	delete enemy;
@@ -119,4 +102,23 @@ int main( void ) {
 //
 //
 //	return (0);
+//}
+//int main()
+//{
+//	IMateriaSource* src = new MateriaSource();
+//	src->learnMateria(new Ice());
+//	src->learnMateria(new Cure());
+//	ICharacter* me = new Character("me");
+//	AMateria* tmp;
+//	tmp = src->createMateria("ice");
+//	me->equip(tmp);
+//	tmp = src->createMateria("cure");
+//	me->equip(tmp);
+//	ICharacter* bob = new Character("bob");
+//	me->use(0, *bob);
+//	me->use(1, *bob);
+//	delete bob;
+//	delete me;
+//	delete src;
+//	return 0;
 //}
