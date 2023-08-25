@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 14:30:56 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/24 17:36:41 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/25 09:26:38 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,4 +118,8 @@ void Character::displayInventory( void ) const {
 			std::cout << "Slot " << i << " : Empty" << std::endl;
 		}
 	}
+}
+
+AMateria*	Character::putMateriaOnTheGround( int idx ) const {
+	return (this->_inventory[idx]);
 }
