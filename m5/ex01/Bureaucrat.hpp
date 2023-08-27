@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:28:53 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/25 16:16:52 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/27 15:18:32 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <ostream>
+
+class Form;
 
 class Bureaucrat {
 
@@ -30,7 +32,7 @@ public:
 	void		setGrade( int grade );
 	void		increment( void );
 	void		decrement( void );
-	void		signForm( void );
+	void		signForm( Form& f );
 	class GradeTooHighException : public std::exception {
 		virtual const char* what( void ) const throw( );
 	};

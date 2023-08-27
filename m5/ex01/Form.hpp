@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:05:39 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/25 16:19:29 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/27 15:17:34 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,21 @@ class Form {
 
 public:
 						Form( void );
+						Form( const std::string name, const int gradeToSign, const int gradeToExec );
 						Form( const Form& src );
 						~Form( void );
 	Form&				operator=( const Form& src );
-	void				setName( const std::string name );
 	void				setSigned( bool );
-	void				setGradeToSign( const int i );
-	void				setGradeToExec( const int i );
 	const std::string	getName( void );
 	bool				getSigned( void );
 	const int			getGradeToSign( void );
 	const int			getGradeToExec( void );
 	void				beSigned( const Bureaucrat& b );
-	class GradeTooHighException {
+	class GradeTooHighException : public std::exception {
 		virtual const char* what( void ) const throw( );
 	};
-	class GradeTooLowException {
-		virtual const char* what (void ) const throw( );
+	class GradeTooLowException : public std::exception {
+		virtual const char* what( void ) const throw( );
 	};
 private:
 	const std::string	_name;

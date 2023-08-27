@@ -6,11 +6,12 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:34:12 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/25 15:59:11 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/27 15:18:38 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <exception>
 #include <ostream>
 
@@ -91,7 +92,11 @@ const char*	Bureaucrat::GradeTooLowException::what( void ) const throw() {
 	return ("Grade is too low!");
 }
 
+void	Bureaucrat::signForm( Form& f ) {
+
+}
+
 std::ostream& operator<<( std::ostream& COUT, const Bureaucrat& b ) {
 	COUT << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
 	return (COUT);
-}
+} 
