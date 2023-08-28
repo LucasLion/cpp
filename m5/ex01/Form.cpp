@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:17:01 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/27 15:19:17 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/28 11:18:37 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ Form::Form( void ) : _gradeToExec(150), _gradeToSign(150) {
 	std::cout << "default Form constructor called (grades at 150 both)" << std::endl;
 }
 
-Form::Form( const std::string name, const int _gradeToSign, const int _gradeToExec ) : _name(name), _gradeToSign(_gradeToSign), _gradeToExec(_gradeToExec) {
+Form::Form( const std::string name, const int gradeToSign, const int gradeToExec ) : _name(name), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec) {
 	std::cout << "Form constructor called" << std::endl;
 }
 
-Form::Form( const Form& src ) : _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExec(src._gradeToExec) {
+Form::Form( const Form& src ) : _name(src.getName()), _gradeToSign(src.getGradeToSign()), _gradeToExec(src.getGradeToExec()) {
 	std::cout << "Form copy constructor called" << std::endl;
 }
 
@@ -40,7 +40,7 @@ void	Form::setSigned( bool b ) {
 	this->_signed = b;
 }
 
-const std::string	Form::getName( void ) {
+const std::string	Form::getName( void ) const {
 	return (this->_name);
 }
 
@@ -48,11 +48,11 @@ bool	Form::getSigned( void ) {
 	return (this->_signed);
 }
 
-const int	Form::getGradeToSign( void ) {
+int	Form::getGradeToSign( void ) const {
 	return (this->_gradeToSign);
 }
 
-const int	Form::getGradeToExec( void ) {
+int	Form::getGradeToExec( void ) const {
 	return (this->_gradeToExec);
 }
 

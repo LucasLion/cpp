@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:34:12 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/27 15:18:38 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/28 11:19:41 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ const char*	Bureaucrat::GradeTooLowException::what( void ) const throw() {
 }
 
 void	Bureaucrat::signForm( Form& f ) {
-
+	(void)f;
 }
 
 std::ostream& operator<<( std::ostream& COUT, const Bureaucrat& b ) {
