@@ -6,7 +6,7 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/08/25 13:53:04 by llion@student    ###   ########.fr        #
+#    Updated: 2023/08/28 11:47:42 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= bureaucrat
 CC   	= c++
 CXXFLAGS= -ggdb3 -Wall -Wextra -Werror -std=c++98 -Wshadow
 RM		= rm -f
-SRC		= main.cpp Bureaucrat.cpp
+SRC		= main.cpp Bureaucrat.cpp Form.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
