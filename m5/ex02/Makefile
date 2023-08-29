@@ -6,7 +6,7 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/08/28 15:54:11 by llion@student    ###   ########.fr        #
+#    Updated: 2023/08/29 13:45:19 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= bureaucrat
 CC   	= c++
 CXXFLAGS= -ggdb3 -Wall -Wextra -Werror -std=c++98 -Wshadow
 RM		= rm -f
-SRC		= main.cpp Bureaucrat.cpp AForm.cpp
+SRC		= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)

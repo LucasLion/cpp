@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 17:41:02 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/25 12:44:39 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/29 16:13:34 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,14 @@ MateriaSource::MateriaSource( void ) : IMateriaSource() {
 		this->_book[i] = NULL;
 }
 
-MateriaSource::MateriaSource( const MateriaSource& src ) : IMateriaSource() {
+MateriaSource::MateriaSource(MateriaSource const & src)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (src._book[i])
+			this->_book[i] = (src._book[i])->clone();
+	}
 	std::cout << "MateriaSource copy constructor called" << std::endl;
-	*this = src;
 }
 
 MateriaSource & MateriaSource::operator=(const MateriaSource& src)
@@ -34,6 +39,7 @@ MateriaSource & MateriaSource::operator=(const MateriaSource& src)
 		if (src._book[i])
 			this->_book[i] = (src._book[i])->clone();
 	}
+	std::cout << "MarteriaSource operator= called" << std::endl;
 	return (*this);
 }
 
@@ -59,14 +65,16 @@ void	MateriaSource::learnMateria( AMateria* m ) {
 	this->_book[i] = m;
 }
 
+//possibles imprecisions ici
 AMateria*	MateriaSource::createMateria( const std::string& type ) {
 	int i = 0;
-	while (this->_book[i] && i <= 4 && type != this->_book[i]->getType())
+	while (this->_book[i] && i <= 4) {
+		if (this->_book[i]->getType() == type) {
+			std::cout << type << " Materia created ! " << std::endl;
+			return (this->_book[i]->clone());
+		}
 		i++;
-	if (i >= 4) {
-		std::cout << Y << "Materia unknowned" << std::endl;
-		return (NULL);
 	}
-	std::cout << type << " Materia created ! " << std::endl;
-	return (this->_book[i]->clone());
+	std::cout << Y << "Materia unknowned" << RE << std::endl;
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:17:01 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/28 16:30:37 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/29 13:49:11 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ const std::string	AForm::getName( void ) const {
 	return (this->_name);
 }
 
-bool	AForm::getSigned( void ) {
+bool	AForm::getSigned( void ) const {
 	return (this->_signed);
 }
 

@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 11:45:45 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/24 17:27:46 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/29 15:37:46 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ Cure::Cure( void ) : AMateria("cure"), _type("cure") {
 	std::cout << G << "Cure default constructor called" << RE << std::endl;
 }
 
-Cure::Cure( const AMateria& src ) {
+Cure::Cure( const AMateria& src ) : AMateria(src), _type(src.getType()) {
 	std::cout << G << "Cure copy constructor called" << RE << std::endl;
-	if (this != &src)
-		*this = src;
 }
 
 Cure::~Cure( void ) {

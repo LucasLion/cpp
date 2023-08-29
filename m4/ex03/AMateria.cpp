@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:57:20 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/24 17:23:16 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/29 15:33:19 by llion@student    ###   ########.fr       */
 
 
 #include <iostream>
@@ -21,10 +21,9 @@ AMateria::AMateria( std::string const& type ) : _type(type) {
 	std::cout << G << "AMateria type constructor called" << RE << std::endl;
 }
 
-AMateria::AMateria( AMateria const & src ) {
+AMateria::AMateria( AMateria const & src ) : _type(src._type) {
 	std::cout << G << "AMateria copy constructor called" << RE << std::endl;
-	if (this != &src)
-		*this = src;
+
 }
 
 AMateria::~AMateria( void ) {

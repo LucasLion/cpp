@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 11:45:45 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/24 17:27:30 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/29 15:32:13 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ Ice::Ice( void ) : AMateria("ice"), _type("ice") {
 	std::cout << G << "Ice default constructor called" << RE << std::endl;
 }
 
-Ice::Ice( const AMateria& src ) {
+Ice::Ice( const Ice& src ) : AMateria(src), _type(src.getType()) {
 	std::cout << G << "Ice copy constructor called" << RE << std::endl;
-	if (this != &src)
-		*this = src;
 }
 
 Ice::~Ice( void ) {

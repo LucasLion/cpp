@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 14:30:56 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/25 13:01:23 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/29 16:08:27 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "AMateria.hpp"
 #include <typeinfo>
 
-Character::Character( void ) : ICharacter(), _name("Default"){
+Character::Character( void ) : ICharacter(), _name("Default") {
 	std::cout << G << "Character Default constructor called" << RE << std::endl;	
 }
 
@@ -25,9 +25,14 @@ Character::Character( std::string const& name ) : ICharacter(), _name(name) {
 	}
 }
 
-Character::Character( const Character& src ) : _name(src._name + "_copy"){
+Character::Character(const Character& src) {
+	this->_name = src.getName();
+	for (int i = 0; i < 4; i++)
+	{
+		if (src._inventory[i])
+			this->_inventory[i] = (src._inventory[i])->clone();
+	}
 	std::cout << G << "Character Copy constructor called" << RE << std::endl;	
-	this->_name = src._name;
 }
 
 Character&	Character::operator=( const Character& src ) {
@@ -58,15 +63,15 @@ const std::string&	Character::getName( void ) const {
 void	Character::equip( AMateria* m ) {
 	int	i = 0;
 
+	if (!m) {
+		std::cout << "There is no materia to equip" << std::endl;
+		return ;
+	}
 	for (int j = 0; j < 4; j++) {
 		if (this->_inventory[j] && this->_inventory[j] == m) {
 			std::cout << "Materia already equipped" << std::endl;
 			return ;
 		}
-	}
-	if (m->getType() != "ice" && m->getType() != "cure") {
-		std::cout << "There is no materia to equip" << std::endl;
-		return ;
 	}
 	while (this->_inventory[i] && i < 4)
 		i++;
@@ -103,6 +108,9 @@ void	Character::use( int idx, ICharacter& target ) {
 		else {
 			std::cout << "No Materia in this slot" << std::endl;
 		}
+	}
+	else {
+		std::cout << "Index out of range" << std::endl;
 	}
 	return ;
 }
