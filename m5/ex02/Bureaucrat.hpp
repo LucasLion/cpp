@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:28:53 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/28 15:52:50 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/29 17:29:03 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ public:
 	void		increment( void );
 	void		decrement( void );
 	void		signForm( AForm& f );
+	void		executeForm( const AForm& f );
 	class GradeTooHighException : public std::exception {
 		virtual const char* what( void ) const throw( );
 	};

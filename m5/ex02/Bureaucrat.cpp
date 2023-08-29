@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:34:12 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/28 16:30:27 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/29 17:37:23 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,6 @@ void	Bureaucrat::decrement( void ) {
 		}
 }
 
-const char*	Bureaucrat::GradeTooHighException::what( void ) const throw() {
-	return ("Grade is too high!");
-}
-
-const char*	Bureaucrat::GradeTooLowException::what( void ) const throw() {
-	return ("Grade is too low!");
-}
-
 void	Bureaucrat::signForm( AForm& f ) {
 	if (this->getGrade() >= f.getGradeToSign())
 		std::cout << Y << this->_name << " couldn't sign " << f.getName() << " because his grade is too low." << RE << std::endl;
@@ -97,6 +89,26 @@ void	Bureaucrat::signForm( AForm& f ) {
 	else
 		std::cout << Y << this->_name << " signed " << f.getName() << RE << std::endl;
 }
+
+// unfinished 
+void	Bureaucrat::executeForm( const AForm& f ) {
+	try {
+		f.execute(*this);
+		std::cout << Y << this->_name << " executed " << f.getName() << RE << std::endl;
+	}
+	catch (const std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}	
+}
+
+const char*	Bureaucrat::GradeTooHighException::what( void ) const throw() {
+	return ("Grade is too high!");
+}
+
+const char*	Bureaucrat::GradeTooLowException::what( void ) const throw() {
+	return ("Grade is too low!");
+}
+
 
 std::ostream& operator<<( std::ostream& COUT, const Bureaucrat& b ) {
 	COUT << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;

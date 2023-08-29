@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:05:39 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/29 13:49:02 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/29 17:33:48 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 	int					getGradeToSign( void ) const ;
 	int					getGradeToExec( void ) const ;
 	void				beSigned( Bureaucrat& b );
-	virtual void		execute( const Bureaucrat& executor ) = 0;
+	virtual void		execute( const Bureaucrat& executor ) const = 0;
 
 	class GradeTooLowException : public std::exception {
 		virtual const char* what( void ) const throw( );
