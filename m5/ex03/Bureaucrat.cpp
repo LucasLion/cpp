@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:34:12 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 20:12:30 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/30 23:14:19 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	Bureaucrat::decrement( void ) {
 void	Bureaucrat::signForm( AForm& f ) {
 	if (this->getGrade() >= f.getGradeToSign())
 		std::cout << Y << this->_name << " couldn't sign " << f.getName() << " because his grade is too low." << RE << std::endl;
-	else if (f.getSigned() == false)
+	else if (f.getSigned() == true)
 		std::cout << Y << this->_name << " couldn't sign " << f.getName() << " because " << f.getName() << " is already signed" << RE << std::endl;
 
 	else

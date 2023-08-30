@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:46:53 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 22:47:42 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/30 23:33:09 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "Intern.hpp"
+#include <cmath>
 #include <cstdlib>
 
 int main( void ) {
@@ -60,10 +61,24 @@ int main( void ) {
 	jerry.executeForm(form4);
 	ceo.executeForm(form4);
 
+	std::cout << "|------------- INTERN ------------|" << std::endl;
 	Intern randomIntern;
 
-	randomIntern.makeForm("presidential pardon", "obama");
-	randomIntern.makeForm("robotomy request", "obama");
-	randomIntern.makeForm("shrubbery", "obama");
+	
+	AForm* form5 = randomIntern.makeForm("prsidential pardon", "obama");
+	AForm* form6 = randomIntern.makeForm("robotomy request", "obama");
+	AForm* form7 = randomIntern.makeForm("shrubbery", "obama");
+
+	(void)form5;
+	ceo.signForm(*form6);
+	ceo.signForm(*form7);
+
+	form7->beSigned(jerry);
+	form7->beSigned(ceo);
+	jerry.executeForm(*form7);
+	ceo.executeForm(*form7);
+	ceo.executeForm(*form7);
+	delete form6;
+	delete form7;
 	return (0);
 }
