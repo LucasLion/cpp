@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:30:26 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/29 17:44:12 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/30 10:08:10 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& src )
 
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=( const ShrubberyCreationForm& src ) {
 	std::cout << "ShrubberyCreationForm assignation operator called" << std::endl;
-	if (this != &src)
+	if (this != &src) {
 		this->_target = src._target;
+		this->setSigned(src.getSigned());
+	}
 	return (*this);
 }
 
@@ -37,7 +39,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void ) {
 	std::cout << R << "ShrubberyCreationForm destructor called" << RE << std::endl;
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) {
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	std::string	filename = this->_target + "_shrubbery";
 	std::ofstream out;
 	const char	tree[][18*4] = {
