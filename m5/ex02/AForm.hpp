@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:05:39 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 09:56:39 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/30 20:15:01 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ public:
 	virtual void		execute( const Bureaucrat& executor ) const = 0;
 
 	class GradeTooLowException : public std::exception {
+		virtual const char* what( void ) const throw( );
+	};
+	class formNotSignedException : public std::exception {
+		virtual const char* what( void ) const throw( );
+	};
+	class alreadySignedException : public std::exception {
 		virtual const char* what( void ) const throw( );
 	};
 

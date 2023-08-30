@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:34:12 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/25 15:59:11 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/30 19:30:33 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,25 +70,23 @@ void	Bureaucrat::increment( void ) {
 }
 
 void	Bureaucrat::decrement( void ) {
-	try
-		{
+	try {
 			this->_grade += 1;
 			if (this->_grade > 150)
 				throw Bureaucrat::GradeTooHighException();
 		}
-	catch(const std::exception& e)
-		{
+	catch(const std::exception& e) {
 			this->_grade = 150;
 			std::cout << e.what() << std::endl;
 		}
 }
 
 const char*	Bureaucrat::GradeTooHighException::what( void ) const throw() {
-	return ("Grade is too high!");
+	return ("\e[4;1;31m[Grade is too high!\e[0m");
 }
 
 const char*	Bureaucrat::GradeTooLowException::what( void ) const throw() {
-	return ("Grade is too low!");
+	return ("\e[4;1;31mGrade is too low!\e[0m");
 }
 
 std::ostream& operator<<( std::ostream& COUT, const Bureaucrat& b ) {

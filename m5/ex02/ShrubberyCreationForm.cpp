@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:30:26 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 10:08:10 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/30 22:16:05 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& src )
 }
 
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=( const ShrubberyCreationForm& src ) {
-	std::cout << "ShrubberyCreationForm assignation operator called" << std::endl;
+	std::cout << G << "ShrubberyCreationForm assignation operator called" << RE << std::endl;
 	if (this != &src) {
 		this->_target = src._target;
 		this->setSigned(src.getSigned());
@@ -40,7 +40,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm( void ) {
 }
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-	std::string	filename = this->_target + "_shrubbery";
 	std::ofstream out;
 	const char	tree[][18*4] = {
 		{0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,},
@@ -63,21 +62,23 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 		{0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,},
 		{0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,}
 	};
-	if (executor.getGrade() <= this->getGradeToExec()) {
-		out.open(filename.c_str());
-		if (!out) {
-			std::cerr << "Unable to open file" << std::endl;
-			return ;
-		}
-		for (int i = 0; i < 17; i++) {
-			for (int j = 0; j < 18*4; j++) {
-				if (tree[i][j] == 1)
-					out << "©";
-				else
-					out << " ";
-			}
-			out << std::endl;
-		}
-		out.close();
+	if (this->getSigned() == false)
+		throw AForm::formNotSignedException();
+	if (this->getGradeToExec() < executor.getGrade())
+		throw Bureaucrat::GradeTooLowException();
+	out.open((this->_target + "_shrubbery").c_str());
+	if (!out) {
+		std::cerr << "Unable to open file" << std::endl;
+		return ;
 	}
+	for (int i = 0; i < 17; i++) {
+		for (int j = 0; j < 18*4; j++) {
+			if (tree[i][j] == 1)
+				out << "©";
+			else
+				out << " ";
+		}
+		out << std::endl;
+	}
+	out.close();
 }

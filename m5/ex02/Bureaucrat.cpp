@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:34:12 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/29 17:37:23 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/30 20:12:30 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ void	Bureaucrat::signForm( AForm& f ) {
 		std::cout << Y << this->_name << " signed " << f.getName() << RE << std::endl;
 }
 
-// unfinished 
 void	Bureaucrat::executeForm( const AForm& f ) {
 	try {
 		f.execute(*this);
@@ -102,11 +101,11 @@ void	Bureaucrat::executeForm( const AForm& f ) {
 }
 
 const char*	Bureaucrat::GradeTooHighException::what( void ) const throw() {
-	return ("Grade is too high!");
+	return ("\e[4;1;31mGrade is too high!\e[0m");
 }
 
 const char*	Bureaucrat::GradeTooLowException::what( void ) const throw() {
-	return ("Grade is too low!");
+	return ("\e[4;1;31mGrade is too low!\e[0m");
 }
 
 

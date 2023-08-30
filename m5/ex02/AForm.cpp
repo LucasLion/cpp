@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:17:01 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 10:07:45 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/30 20:41:16 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,18 +58,29 @@ int	AForm::getGradeToExec( void ) const {
 
 void	AForm::beSigned( Bureaucrat& b ) {
 	try {
-		if (b.getGrade() > this->_gradeToSign)
+		if (this->_signed == 1) {
+			throw AForm::alreadySignedException();
+		}
+		else if (b.getGrade() > this->_gradeToSign)
 			throw AForm::GradeTooLowException();	
 		this->_signed = true;
 		b.signForm(*this);
 	}
-	catch (const std::exception&) {
-		b.signForm(*this);
+	catch (const std::exception& e) {
+		std::cout << e.what() << std::endl;
 	}
 }
 
 const char*	AForm::GradeTooLowException::what( void ) const throw() {
-	return ("Grade is too low!");
+	return ("\e[4;1;31mGrade is too low!\e[0m");
+}
+
+const char*	AForm::formNotSignedException::what( void ) const throw() {
+	return ("\e[4;1;31mForm is not signed!\e[0m");
+}
+
+const char*	AForm::alreadySignedException::what( void ) const throw() {
+	return ("\e[4;1;31mForm is already signed!\e[0m");
 }
 
 std::ostream&	operator<<( std::ostream& COUT, AForm& f ) {
