@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:34:12 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 20:12:30 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 13:39:30 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,19 @@
 #include <exception>
 #include <ostream>
 
-Bureaucrat::Bureaucrat( void ) : _name("default") {
+Bureaucrat::Bureaucrat( void ) : _name("default"), _grade(150) {
 	std::cout << G << "Bureaucrat default constructor called" << RE << std::endl;
 }
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) : _name(name), _grade(grade) {
-	std::cout << G << "Bureaucrat default constructor called" << RE << std::endl;
+	if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	else if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else {
+		this->_grade = grade;
+		std::cout << G << "Bureaucrat constructor called" << RE << std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat( const Bureaucrat& src ) {
@@ -83,9 +90,8 @@ void	Bureaucrat::decrement( void ) {
 void	Bureaucrat::signForm( AForm& f ) {
 	if (this->getGrade() >= f.getGradeToSign())
 		std::cout << Y << this->_name << " couldn't sign " << f.getName() << " because his grade is too low." << RE << std::endl;
-	else if (f.getSigned() == false)
+	else if (f.getSigned() == true)
 		std::cout << Y << this->_name << " couldn't sign " << f.getName() << " because " << f.getName() << " is already signed" << RE << std::endl;
-
 	else
 		std::cout << Y << this->_name << " signed " << f.getName() << RE << std::endl;
 }
@@ -110,6 +116,6 @@ const char*	Bureaucrat::GradeTooLowException::what( void ) const throw() {
 
 
 std::ostream& operator<<( std::ostream& COUT, const Bureaucrat& b ) {
-	COUT << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
+	COUT << b.getName() << ", bureaucrat grade " << b.getGrade();
 	return (COUT);
 } 

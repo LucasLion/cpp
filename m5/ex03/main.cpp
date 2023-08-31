@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:46:53 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 23:33:09 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 13:32:24 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,23 @@ int main( void ) {
 
 	ShrubberyCreationForm form = ShrubberyCreationForm("house");
 	ShrubberyCreationForm form2;
-	form2 = form;
+	std::cout << "|------------- SHRU ------------|" << std::endl;
+	std::cout << "form2: " << form2.getName() << std::endl;
+	std::cout << "form2 signed: " << form2.getSigned() << std::endl;
+	std::cout << "form2 grade to sign: " << form2.getGradeToSign() << std::endl;
+	std::cout << "form2 grade to exec: " << form2.getGradeToExec() << std::endl;
+	std::cout <<"address: " << &form << std::endl;
+	std::cout <<"address: " << &form2<< std::endl;
+	std::cout << "form2 target: " << form2._target << std::endl; 
+
+	form.setSigned(true);
+	std::cout << "form2: " << form2.getName() << std::endl;
+	std::cout << "form2 signed: " << form2.getSigned() << std::endl;
+	std::cout << "form2 grade to sign: " << form2.getGradeToSign() << std::endl;
+	std::cout << "form2 grade to exec: " << form2.getGradeToExec() << std::endl;
+	std::cout <<"address: " << &form << std::endl;
+	std::cout <<"address: " << &form2<< std::endl;
+	std::cout << "|------------- SHRU ------------|" << std::endl;
 	
 	std::cout << "|------------- SHRU ------------|" << std::endl;
 	std::cout << "Form name: " << form.getName() << std::endl;
@@ -80,5 +96,7 @@ int main( void ) {
 	ceo.executeForm(*form7);
 	delete form6;
 	delete form7;
+
+	Bureaucrat john = Bureaucrat("jerry", 1243);
 	return (0);
 }

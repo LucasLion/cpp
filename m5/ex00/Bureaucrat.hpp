@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:28:53 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/25 15:52:51 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 12:02:27 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include <iostream>
 # include <ostream>
+
+#define RE "\033[0m"
+#define G "\033[32m"
+#define Y "\033[33m"
+#define R "\033[31m"
 
 class Bureaucrat {
 

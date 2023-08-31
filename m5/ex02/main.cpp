@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:46:53 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 22:19:58 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 12:19:28 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 int main( void ) {
+	std::cout << true << std::endl;
 	Bureaucrat jerry = Bureaucrat("jerry", 149);
 	Bureaucrat ceo = Bureaucrat("CEO", 3);
 
@@ -56,5 +57,6 @@ int main( void ) {
 	form4.beSigned(ceo);
 	jerry.executeForm(form4);
 	ceo.executeForm(form4);
+
 	return (0);
 }

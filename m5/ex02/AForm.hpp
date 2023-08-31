@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:05:39 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 20:15:01 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 12:06:59 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class AForm {
 
 public:
 						AForm( void );
-						AForm( const std::string name, int sign, const int gradeToSign, const int gradeToExec );
+						AForm( const std::string name, bool sign, const int gradeToSign, const int gradeToExec );
 						AForm( const AForm& src );
 	virtual				~AForm( void );
 	AForm&				operator=( const AForm& src );

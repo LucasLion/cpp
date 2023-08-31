@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:30:26 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 22:08:19 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 12:29:14 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include "AForm.hpp"
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm( void ) : AForm("Robotomy form", 0, 72, 45), _target("default") {
+RobotomyRequestForm::RobotomyRequestForm( void ) : AForm("Robotomy form", false, 72, 45), _target("default") {
 	std::cout << G << "RobotomyRequestForm default constructor called" << RE << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm( std::string target ) : AForm("Shrubbery form", 0, 72, 45), _target(target) {
+RobotomyRequestForm::RobotomyRequestForm( std::string target ) : AForm("Shrubbery form", false, 72, 45), _target(target) {
 	std::cout << G << "RobotomyRequestForm default constructor called" << RE << std::endl;
 }
 

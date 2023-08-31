@@ -6,7 +6,7 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/08/25 13:53:04 by llion@student    ###   ########.fr        #
+#    Updated: 2023/08/31 12:04:06 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,17 +24,21 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CC) $(CXXFLAGS) -o $(NAME) $(OBJ)
+	make clean
 
 run: $(OBJ)
 	$(CC) $(CXXFLAGS) -o $(NAME) $(OBJ)
+	make clean
 	@./$(NAME)
 
 leaks: $(OBJ)
 	$(CC) $(CXXFLAGS) -o $(NAME) $(OBJ)
+	make clean
 	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
 debug: $(OBJ)
 	$(CC) $(CXXFLAGS) -fsanitize=address -o $(NAME) $(OBJ)
+	make clean
 	@./$(NAME)
 
 clean:

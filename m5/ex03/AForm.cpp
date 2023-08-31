@@ -6,18 +6,18 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:17:01 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 20:41:16 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 13:04:47 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm( void ) : _name("default form"), _signed(0), _gradeToSign(150), _gradeToExec(150) {
+AForm::AForm( void ) : _name("default form"), _signed(false), _gradeToSign(150), _gradeToExec(150) {
 	std::cout << G << "default AForm constructor called (grades at 150 both)" << RE << std::endl;
 }
 
-AForm::AForm( const std::string name, int sign, const int gradeToSign, const int gradeToExec ) : _name(name), _signed(sign), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec) {
+AForm::AForm( const std::string name, bool sign, const int gradeToSign, const int gradeToExec ) : _name(name), _signed(sign), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec) {
 	std::cout << G << "AForm constructor called" << RE << std::endl;
 }
 
@@ -31,8 +31,9 @@ AForm::~AForm( void ) {
 
 AForm&	AForm::operator=( const AForm& src ) {
 	std::cout << "AForm assignation operator called" << std::endl;
-	if (this != &src)
-		*this = src;
+	if (this != &src) {
+		this->_signed = src.getSigned();
+	}
 	return (*this);
 }
 
@@ -58,13 +59,13 @@ int	AForm::getGradeToExec( void ) const {
 
 void	AForm::beSigned( Bureaucrat& b ) {
 	try {
-		if (this->_signed == 1) {
+		if (this->_signed == true) {
 			throw AForm::alreadySignedException();
 		}
 		else if (b.getGrade() > this->_gradeToSign)
 			throw AForm::GradeTooLowException();	
-		this->_signed = true;
 		b.signForm(*this);
+		this->_signed = true;
 	}
 	catch (const std::exception& e) {
 		std::cout << e.what() << std::endl;
@@ -87,6 +88,6 @@ std::ostream&	operator<<( std::ostream& COUT, AForm& f ) {
 	std::cout << "AForm name: " << f.getName() << std::endl;
 	std::cout << "AForm grade to sign: " << f.getGradeToSign() << std::endl;
 	std::cout << "AForm grade to exec: " << f.getGradeToExec() << std::endl;
-	std::cout << "AForm signed: " << f.getSigned() << std::endl;
+	std::cout << "AForm signed: " << f.getSigned(); 
 	return (COUT);	
 }

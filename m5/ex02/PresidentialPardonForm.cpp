@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:30:26 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 22:08:04 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 12:28:53 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm( void ) : AForm("Presidential form", 0, 25, 5), _target("default target") {
+PresidentialPardonForm::PresidentialPardonForm( void ) : AForm("Presidential form", false, 25, 5), _target("default target") {
 	std::cout << G << "PresidentialPardonForm default constructor called" << RE << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm( std::string target ) : AForm("Shrubbery form", 0, 25, 5), _target(target) {
+PresidentialPardonForm::PresidentialPardonForm( std::string target ) : AForm("Shrubbery form", false, 25, 5), _target(target) {
 	std::cout << G << "PresidentialPardonForm default constructor called" << RE << std::endl;
 }
 

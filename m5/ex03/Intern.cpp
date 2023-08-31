@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 22:24:08 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/31 09:23:46 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 12:06:07 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Intern::Intern( void ) {
 
 Intern::Intern( const Intern& src ) {
 	(void)src;
-	std::cout << G << "Intern default constructor called" << RE << std::endl;
+	std::cout << G << "Intern copy constructor called" << RE << std::endl;
 }
 
 Intern& Intern::operator=( const Intern& src ) {

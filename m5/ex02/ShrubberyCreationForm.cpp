@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 14:30:26 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 22:16:05 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 12:29:36 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("Shrubbery form", 0, 145, 137), _target("default") {
+ShrubberyCreationForm::ShrubberyCreationForm( void ) : AForm("Shrubbery form", false, 145, 137), _target("default") {
 	std::cout << G << "ShrubberyCreationForm default constructor called" << RE << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm("Shrubbery form", 0, 145, 137), _target(target) {
+ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) : AForm("Shrubbery form", false, 145, 137), _target(target) {
 	std::cout << G << "ShrubberyCreationForm default constructor called" << RE << std::endl;
 }
 
