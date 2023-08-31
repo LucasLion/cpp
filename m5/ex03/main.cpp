@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:46:53 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/31 13:32:24 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 14:39:16 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,20 @@ int main( void ) {
 	std::cout << "Form grade to sign: " << form.getGradeToSign() << std::endl;
 	std::cout << "Form grade to exec: " << form.getGradeToExec() << std::endl;
 
-	form2.beSigned(jerry);
-	form2.beSigned(jerry);
-	form2.beSigned(ceo);
-	form2.beSigned(ceo);
+	jerry.signForm(form2);
+	jerry.signForm(form2);
+	ceo.signForm(form2);
+	ceo.signForm(form2);
 	ceo.executeForm(form2);
 
 	std::cout << "|------------- ROBO ------------|" << std::endl;
 	RobotomyRequestForm form3("robot target");
 
 	jerry.executeForm(form3);
-	form3.beSigned(jerry);
-	form3.beSigned(jerry);
-	form3.beSigned(ceo);
-	form3.beSigned(ceo);
+	jerry.signForm(form3);
+	jerry.signForm(form3);
+	ceo.signForm(form3);
+	ceo.signForm(form3);
 	for (int i = 0; i < 10; i++)
 		jerry.executeForm(form3);
 	for (int i = 0; i < 10; i++)
@@ -73,8 +73,8 @@ int main( void ) {
 	PresidentialPardonForm form4("Ali Bongo");
 
 	jerry.executeForm(form4);
-	form4.beSigned(ceo);
-	jerry.executeForm(form4);
+	ceo.signForm(form4);
+	jerry.signForm(form4);
 	ceo.executeForm(form4);
 
 	std::cout << "|------------- INTERN ------------|" << std::endl;
@@ -85,18 +85,24 @@ int main( void ) {
 	AForm* form6 = randomIntern.makeForm("robotomy request", "obama");
 	AForm* form7 = randomIntern.makeForm("shrubbery", "obama");
 
-	(void)form5;
+	static_cast<void>(form5);
+
 	ceo.signForm(*form6);
 	ceo.signForm(*form7);
 
-	form7->beSigned(jerry);
-	form7->beSigned(ceo);
+	jerry.signForm(*form7);
+	ceo.signForm(*form7);
 	jerry.executeForm(*form7);
 	ceo.executeForm(*form7);
 	ceo.executeForm(*form7);
 	delete form6;
 	delete form7;
 
-	Bureaucrat john = Bureaucrat("jerry", 1243);
+	try {
+		Bureaucrat john = Bureaucrat("jerry", 1243);
+	}
+	catch (std::exception& e) {
+		std::cout << "Couldn't create bureaucrat because " << e.what() << std::endl;		
+	}
 	return (0);
 }

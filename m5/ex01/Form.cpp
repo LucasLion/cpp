@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:17:01 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/31 13:05:40 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 14:25:56 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,20 @@ int	Form::getGradeToExec( void ) const {
 }
 
 void	Form::beSigned( Bureaucrat& b ) {
-	try {
-		if (b.getGrade() > this->_gradeToSign)
-			throw Form::GradeTooLowException();	
-		b.signForm(*this);
+	if (this->getSigned() == true)
+		throw Form::alreadySignedException();
+	else if (b.getGrade() > this->getGradeToSign())
+		throw Form::GradeTooLowException();
+	else
 		this->_signed = true;
-	}
-	catch (const std::exception&) {
-		b.signForm(*this);
-	}
 }
 
 const char*	Form::GradeTooLowException::what( void ) const throw() {
-	return ("Grade is too low!");
+	return ("\e[4;1;31mGrade is too low!\e[0m");
+}
+
+const char*	Form::alreadySignedException::what( void ) const throw() {
+	return ("\e[4;1;31mForm is already signed!\e[0m");
 }
 
 std::ostream&	operator<<( std::ostream& COUT, Form& f ) {

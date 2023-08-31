@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:34:12 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/31 13:39:01 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 14:04:00 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,31 +65,19 @@ void	Bureaucrat::setGrade( int grade ) {
 }
 
 void	Bureaucrat::increment( void ) {
-	try {
-			this->_grade -= 1;
-			if (this->_grade < 1) 
-				throw Bureaucrat::GradeTooHighException();
-		}
-	catch(const std::exception& e) {
-			this->_grade = 1;
-			std::cout << e.what() << std::endl;
-		}
+	if (this->_grade <= 1) 
+		throw Bureaucrat::GradeTooHighException();
+	this->_grade -= 1;
 }
 
 void	Bureaucrat::decrement( void ) {
-	try {
-			this->_grade += 1;
-			if (this->_grade > 150)
-				throw Bureaucrat::GradeTooLowException();
-		}
-	catch(const std::exception& e) {
-			this->_grade = 150;
-			std::cout << e.what() << std::endl;
-		}
+	if (this->_grade >= 150)
+		throw Bureaucrat::GradeTooLowException();
+	this->_grade += 1;
 }
 
 const char*	Bureaucrat::GradeTooHighException::what( void ) const throw() {
-	return ("\e[4;1;31m[Grade is too high!\e[0m");
+	return ("\e[4;1;31mGrade is too high!\e[0m");
 }
 
 const char*	Bureaucrat::GradeTooLowException::what( void ) const throw() {

@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 13:34:12 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/31 13:39:17 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 14:24:21 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,44 +66,33 @@ void	Bureaucrat::setGrade( int grade ) {
 }
 
 void	Bureaucrat::increment( void ) {
-	try {
-		this->_grade -= 1;
-		if (this->_grade < 1) 
-			throw Bureaucrat::GradeTooHighException();
-		}
-	catch(const std::exception& e) {
-			this->_grade = 1;
-			std::cout << e.what() << std::endl;
-		}
+	if (this->_grade <= 1) 
+		throw Bureaucrat::GradeTooHighException();
+	this->_grade -= 1;
 }
 
 void	Bureaucrat::decrement( void ) {
-	try {
-		this->_grade += 1;
-		if (this->_grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-		}
-	catch(const std::exception& e) {
-			this->_grade = 150;
-			std::cout << e.what() << std::endl;
-		}
+	if (this->_grade >= 150)
+		throw Bureaucrat::GradeTooLowException();
+	this->_grade += 1;
 }
 
 const char*	Bureaucrat::GradeTooHighException::what( void ) const throw() {
-	return ("Grade is too high!");
+	return ("\e[4;1;31mGrade is too high!\e[0m");
 }
 
 const char*	Bureaucrat::GradeTooLowException::what( void ) const throw() {
-	return ("Grade is too low!");
+	return ("\e[4;1;31mGrade is too low!\e[0m");
 }
 
 void	Bureaucrat::signForm( Form& f ) {
-	if (this->getGrade() >= f.getGradeToSign())
-		std::cout << Y << this->_name << " couldn't sign " << f.getName() << " because his grade is too low." << RE << std::endl;
-	else if (f.getSigned() == true)
-		std::cout << Y << this->_name << " couldn't sign " << f.getName() << " because " << f.getName() << " is already signed" << RE << std::endl;
-	else
+	try {
+		f.beSigned(*this);
 		std::cout << Y << this->_name << " signed " << f.getName() << RE << std::endl;
+	}
+	catch ( std::exception& e ) {
+		std::cout << this->_name << " couldn't sign because " << e.what() << std::endl;		
+	}
 }
 
 std::ostream& operator<<( std::ostream& COUT, const Bureaucrat& b ) {

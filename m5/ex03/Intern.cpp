@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 22:24:08 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/31 12:06:07 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 14:33:31 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ AForm*	Intern::makeForm( std::string formName, std::string target ) {
 		std::cout << Y << "Intern created \"" << formName << "\" form" << RE << std::endl;
 	}
 	catch (const std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cout << " Intern couldn't execute form because " << e.what() << std::endl;		
 	}
 	return (toMake);
 }
