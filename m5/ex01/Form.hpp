@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:05:39 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/28 13:29:15 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 09:19:00 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 	Form&				operator=( const Form& src );
 	void				setSigned( bool );
 	const std::string	getName( void ) const ;
-	bool				getSigned( void ) ;
+	bool				getSigned( void ) const ;
 	int					getGradeToSign( void ) const ;
 	int					getGradeToExec( void ) const ;
 	void				beSigned( Bureaucrat& b );

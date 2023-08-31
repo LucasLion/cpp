@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 22:24:08 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 23:18:25 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 09:23:46 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ AForm*	Intern::makeForm( std::string formName, std::string target ) {
 	std::string formNames[3] = {"robotomy request", "presidential pardon", "shrubbery"};
 	AForm*	toMake = NULL;
 	for (int i = 0; i < 3; i++) {
-		std::cout << "loop: " << formNames[i] << std::endl;
-		std::cout << "      " << formName << std::endl;
 		if (formName == formNames[i])
 			toMake = f[i](target);
 	}

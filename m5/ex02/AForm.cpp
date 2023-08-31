@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 16:17:01 by llion@student     #+#    #+#             */
-/*   Updated: 2023/08/30 20:41:16 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/08/31 09:20:57 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ AForm::~AForm( void ) {
 
 AForm&	AForm::operator=( const AForm& src ) {
 	std::cout << "AForm assignation operator called" << std::endl;
-	if (this != &src)
-		*this = src;
+	this->_signed = src.getSigned();
 	return (*this);
 }
 

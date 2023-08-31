@@ -6,16 +6,16 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/08/30 22:06:52 by llion@student    ###   ########.fr        #
+#    Updated: 2023/08/31 09:21:46 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= bureaucrat
-CC   	= c++
-CXXFLAGS= -ggdb3 -Wall -Wextra -Werror -std=c++98 -Wshadow
-RM		= rm -f
-SRC		= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
-OBJ		= $(SRC:.cpp=.o)
+NAME		= bureaucrat
+CC   		= c++
+CXXFLAGS	= -ggdb3 -Wall -Wextra -Werror -std=c++98 -Wshadow
+RM			= rm -f
+SRC			= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+OBJ			= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
