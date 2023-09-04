@@ -6,14 +6,18 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:05:52 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/01 16:24:27 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/04 17:24:36 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>
-#include <limits>
-#include <cmath>
+#ifndef SCALARCONVERTER_HPP
+# define SCALARCONVERTER_HPP
+
+# include <iostream>
+# include <iomanip>
+# include <limits>
+# include <cmath>
+# include <string>
 
 #define RE "\033[0m"
 #define G "\033[32m"
@@ -26,8 +30,18 @@ public:
 						ScalarConverter();
 						ScalarConverter(ScalarConverter const & src);
 						~ScalarConverter();
-
-						ScalarConverter&	operator=(ScalarConverter const & rhs);
-						std::string			findType(const std::string& str);
-	void				convert(const std::string& str);
+	ScalarConverter&	operator=( ScalarConverter const & rhs );
+	std::string			findType( const std::string& str );
+	bool				isChar( const std::string& str );
+	bool				isInt( const std::string& str );
+	bool				isFloat( const std::string& str );
+	bool				isDouble( const std::string& str );
+	void				convertFromChar( const std::string& str );
+	void				convertFromInt( const std::string& str );
+	void				convertFromFloat( const std::string& str );
+	void				convertFromDouble( const std::string& str );
+	void				convert( const std::string& str );
+	void				display( const std::string& std );
 }; 
+
+#endif
