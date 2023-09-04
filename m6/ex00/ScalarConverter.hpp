@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:05:52 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/04 17:24:36 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/04 19:41:37 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 class ScalarConverter {
 
 public:
-						ScalarConverter();
-						ScalarConverter(ScalarConverter const & src);
-						~ScalarConverter();
+						ScalarConverter( void );
+						ScalarConverter( ScalarConverter const & src );
+						~ScalarConverter( void );
 	ScalarConverter&	operator=( ScalarConverter const & rhs );
 	std::string			findType( const std::string& str );
 	bool				isChar( const std::string& str );
