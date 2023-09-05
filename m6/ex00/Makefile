@@ -6,11 +6,11 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/09/01 16:55:29 by llion@student    ###   ########.fr        #
+#    Updated: 2023/09/05 18:38:28 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= scalar_converter
+NAME	= convert
 CC   	= c++
 CXXFLAGS= -ggdb3 -Wall -Wextra -Werror -std=c++98 -Wshadow
 RM		= rm -f
@@ -41,7 +41,7 @@ leaks: $(OBJ)
 debug: $(OBJ)
 	$(CC) $(CXXFLAGS) -fsanitize=address -o $(NAME) $(OBJ)
 	make clean
-	@./$(NAME)
+	@./$(NAME) 123123123
 
 test: $(TOBJ)
 	$(CC) $(CXXFLAGS) -o $(NAME) $(TOBJ)

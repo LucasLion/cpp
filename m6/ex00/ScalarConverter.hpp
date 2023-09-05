@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:05:52 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/04 19:41:37 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/05 18:54:53 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ public:
 						ScalarConverter( ScalarConverter const & src );
 						~ScalarConverter( void );
 	ScalarConverter&	operator=( ScalarConverter const & rhs );
-	std::string			findType( const std::string& str );
-	bool				isChar( const std::string& str );
-	bool				isInt( const std::string& str );
-	bool				isFloat( const std::string& str );
-	bool				isDouble( const std::string& str );
-	void				convertFromChar( const std::string& str );
-	void				convertFromInt( const std::string& str );
-	void				convertFromFloat( const std::string& str );
-	void				convertFromDouble( const std::string& str );
-	void				convert( const std::string& str );
-	void				display( const std::string& std );
+	static std::string	findType( const std::string& str );
+	static bool			isChar( const std::string& str );
+	static bool			isInt( const std::string& str );
+	static bool			isFloat( const std::string& str );
+	static bool			isDouble( const std::string& str );
+	static void			convertFromChar( const std::string& str );
+	static void			convertFromInt( const std::string& str );
+	static void			convertFromFloat( const std::string& str );
+	static void			convertFromDouble( const std::string& str );
+	static void			convert( const std::string& str );
+	static void			display( const std::string& std );
 }; 
 
 #endif

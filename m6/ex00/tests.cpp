@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:04:05 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/05 15:15:37 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/05 18:57:04 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,7 @@ int main( void ) {
 	sc.convert("125");           // Test avec un entier : doit réussir
 	sc.convert("42");          // Test avec un entier : doit réussir
 	sc.convert("129");           // Test avec un entier : doit réussir
-	sc.convert("0.0f");        // Test avec un float : doit réussir
-	sc.convert("1.1f");     // Test avec un float : doit réussir
 	sc.convert("aString");     // Test avec une chaîne de caractères : doit réussir
-	sc.convert("42");          // Test avec un entier : doit réussir
-	sc.convert("-42");         // Test avec un entier : doit réussir
 	sc.convert("42.0");        // Test avec un double : doit réussir
 	sc.convert("-42.0");       // Test avec un double : doit réussir
 	sc.convert("42.0f");       // Test avec un float : doit réussir
@@ -39,7 +35,9 @@ int main( void ) {
 	sc.convert("-inff");
 	sc.convert("nan");         // Test avec NaN (Not-a-Number) : doit réussir
 	sc.convert("nanf");         // Test avec NaN (Not-a-Number) : doit réussir
-	//sc.convert("c");           // Test avec un caractère : doit réussir
+	sc.convert("0.0f");        // Test avec un float : doit réussir
+	sc.convert("1.1f");     // Test avec un float : doit réussir
+	sc.convert("c");           // Test avec un caractère : doit réussir
 	
 	std::cout << std::endl;
 	std::cout << G << "Tests qui doivent échouer avec des messages d'erreur" << RE << std::endl;
@@ -65,7 +63,6 @@ int main( void ) {
 	sc.convert("0x12.34");            // Test avec une notation hexadécimale non prise en charge : doit échouer
 	sc.convert("1.23e+1000");         // Test avec une valeur en notation exponentielle hors de portée : doit échouer
 	sc.convert("1.23e-1000");         // Test avec une valeur en notation exponentielle hors de portée : doit échouer
-	sc.convert("0.0000000001");       // Test avec une valeur très petite : doit réussir
 	sc.convert("3.14fxyz");           // Test avec un suffixe "f" suivi de caractères inattendus : doit échouer
 	sc.convert("0x1A42.42");          // Test avec une partie valide suivie d'une notation hexadécimale non prise en charge : doit échouer
 	sc.convert("42.42e3abc");         // Test avec une notation exponentielle suivie de caractères inattendus : doit échouer

@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:04:05 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/05 10:12:03 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/05 18:37:49 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main( int argc, char** argv) {
 	if (argc != 2) {
-		std::cout << "Usage: ./convert [string]" << std::endl;
+		std::cout << "Usage: ./convert <string>" << std::endl;
 		return (0);
 	}
 	ScalarConverter sc;
