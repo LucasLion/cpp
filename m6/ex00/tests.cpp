@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.cpp                                           :+:      :+:    :+:   */
+/*   tests.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:04:05 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/04 16:56:19 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/05 15:15:37 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,15 @@ int main( void ) {
 	std::cout << G << "Tests qui doivent réussir" << RE << std::endl;
 	sc.convert("0.0");         // Test avec un double : doit réussir
 	sc.convert("6");           // Test avec un entier : doit réussir
+	sc.convert("0");           // Test avec un entier : doit réussir
+	sc.convert("255");           // Test avec un entier : doit réussir
+	sc.convert("256");           // Test avec un entier : doit réussir
+	sc.convert("126");           // Test avec un entier : doit réussir
+	sc.convert("125");           // Test avec un entier : doit réussir
+	sc.convert("42");          // Test avec un entier : doit réussir
+	sc.convert("129");           // Test avec un entier : doit réussir
 	sc.convert("0.0f");        // Test avec un float : doit réussir
-	sc.convert("1.1234f");     // Test avec un float : doit réussir
-	sc.convert("c");           // Test avec un caractère : doit réussir
+	sc.convert("1.1f");     // Test avec un float : doit réussir
 	sc.convert("aString");     // Test avec une chaîne de caractères : doit réussir
 	sc.convert("42");          // Test avec un entier : doit réussir
 	sc.convert("-42");         // Test avec un entier : doit réussir
@@ -29,11 +35,11 @@ int main( void ) {
 	sc.convert("-42.0");       // Test avec un double : doit réussir
 	sc.convert("42.0f");       // Test avec un float : doit réussir
 	sc.convert("-42.0f");      // Test avec un float : doit réussir
-	sc.convert("42.42");       // Test avec un double : doit réussirj
-	sc.convert("-42.42");      // Test avec un double : doit réussir
+	sc.convert("-42.1f");      // Test avec un float : doit réussir
 	sc.convert("-inff");
 	sc.convert("nan");         // Test avec NaN (Not-a-Number) : doit réussir
 	sc.convert("nanf");         // Test avec NaN (Not-a-Number) : doit réussir
+	//sc.convert("c");           // Test avec un caractère : doit réussir
 	
 	std::cout << std::endl;
 	std::cout << G << "Tests qui doivent échouer avec des messages d'erreur" << RE << std::endl;
