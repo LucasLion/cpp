@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 09:03:42 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/05 18:56:34 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/06 14:08:44 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,23 +189,15 @@ void	ScalarConverter::convert( const std::string& str ) {
 	std::string result = ScalarConverter::findType(str);
 
 	std::cout << "String to convert: " << G << str << RE << std::endl;
-	if (result == "int") {
-		std::cout << "Conversion from int to:" << std::endl;
+	if (result == "int")
 		ScalarConverter::convertFromInt(str);
-	}
-	else if (result == "char") {
-		std::cout << "Conversion from char to:" << std::endl;
+	else if (result == "char")
 		ScalarConverter::convertFromChar(str);
-	}
-	else if (result == "float") {
-		std::cout << "Conversion from float to:" << std::endl;
+	else if (result == "float")
 		ScalarConverter::convertFromFloat(str);
-	}
-	else if (result == "double") {
-		std::cout << "Conversion from double to:" << std::endl;
+	else if (result == "double")
 		ScalarConverter::convertFromDouble(str);
-	}
 	else
-		 std::cout << R << "Conversion is absurd" << RE << std::endl;
+		 std::cout << R << "Conversion is absurd (voyons...)" << RE << std::endl;
 	std::cout << std::endl;
 }
