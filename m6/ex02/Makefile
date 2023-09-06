@@ -6,7 +6,7 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/09/06 11:57:27 by llion@student    ###   ########.fr        #
+#    Updated: 2023/09/06 13:04:49 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= identify
 CC   	= c++
 CXXFLAGS= -ggdb3 -Wall -Wextra -Werror -std=c++98 -Wshadow
 RM		= rm -f
-SRC		= main.cpp
+SRC		= main.cpp Base.cpp A.cpp B.cpp C.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:05:52 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/06 12:11:04 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/06 13:03:19 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,5 @@ public:
 	void	identify( Base* p );
 	void	identify( Base& p );
 };
-
-class A : public Base { ~A( void ); };
-class B : public Base { ~B( void ); };
-class C : public Base { ~C( void ); };
 
 #endif
