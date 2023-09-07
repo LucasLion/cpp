@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 15:04:05 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/05 18:57:04 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/07 10:16:30 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int main( void ) {
 	ScalarConverter sc;
 
 	std::cout << G << "Tests qui doivent réussir" << RE << std::endl;
+	sc.convert("1223.234");          // Test avec un entier : doit réussir
 	sc.convert("0.0");         // Test avec un double : doit réussir
 	sc.convert("6");           // Test avec un entier : doit réussir
 	sc.convert("0");           // Test avec un entier : doit réussir
@@ -38,6 +39,7 @@ int main( void ) {
 	sc.convert("0.0f");        // Test avec un float : doit réussir
 	sc.convert("1.1f");     // Test avec un float : doit réussir
 	sc.convert("c");           // Test avec un caractère : doit réussir
+	sc.convert("42");
 	
 	std::cout << std::endl;
 	std::cout << G << "Tests qui doivent échouer avec des messages d'erreur" << RE << std::endl;

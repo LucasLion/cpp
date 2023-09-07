@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 09:03:42 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/06 14:08:44 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/07 10:54:25 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iomanip>
 #include <iostream>
 #include <ios>
+#include <limits>
 #include <sstream>
 #include <cstdlib>
 
@@ -124,8 +125,8 @@ void	ScalarConverter::convertFromInt( const std::string& str ) {
 	else
 		std::cout << "char: impossible" << std::endl;
 	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
-	std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
 }
 
 void	ScalarConverter::convertFromFloat( const std::string& str ) {
@@ -145,10 +146,13 @@ void	ScalarConverter::convertFromFloat( const std::string& str ) {
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
-	std::cout << "int: " << static_cast<int>(i) << std::endl;
+	if (static_cast<int>(i) < std::numeric_limits<int>::max() || i > std::numeric_limits<int>::min())
+		std::cout << "int: " << static_cast<int>(i) << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
 	if (i - static_cast<int>(i) == 0) {
-		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
-		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
+		std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(i) << std::endl;
 	}
 	else {
 		std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
@@ -167,20 +171,26 @@ void	ScalarConverter::convertFromDouble( const std::string& str ) {
 		std::cout << "double: " << str << std::endl;
 		return ;
 	}
-	else if (i < 32 && i > 126)
-		std::cout << "char: Non displayable" << std::endl;
-	else if (isprint(i) && str.length() == 1)
+	else if (i >= 0 && i <= 127 && isprint(i))
 		std::cout << "char: '" << static_cast<char>(i) << "'" << std::endl;
+	else if (i >= 0 && i <= 127 && !isprint(i) && i - static_cast<int>(i) == 0)
+		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
-	std::cout << "int: " << i << std::endl;
+	if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(i) << std::endl;
 	if (i - static_cast<int>(i) != 0) {
-		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
-		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
+		if (i > std::numeric_limits<float>::max() || i < std::numeric_limits<float>::min())
+			std::cout << "float: impossible" << std::endl;
+		else
+			std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(i) << std::endl;
 	}
 	else {
-		std::cout << "float: " << static_cast<float>(i) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(i) << ".0" << std::endl;
+		std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(i) << std::endl;
 	}
 }
 
