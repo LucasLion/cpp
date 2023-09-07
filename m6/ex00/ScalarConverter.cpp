@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 09:03:42 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/07 10:54:25 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/07 11:27:32 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ bool	ScalarConverter::isInt( const std::string& str ) {
 		else if (!isdigit(str[i]))
 			return (false);
 		}
+	if (str.length() > 10)
+		return (false);
 	return (true);
 }
 
@@ -146,10 +148,10 @@ void	ScalarConverter::convertFromFloat( const std::string& str ) {
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
-	if (static_cast<int>(i) < std::numeric_limits<int>::max() || i > std::numeric_limits<int>::min())
-		std::cout << "int: " << static_cast<int>(i) << std::endl;
-	else
+	if (static_cast<int>(i) < 2147483647 || i > -2147483648)
 		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(i) << std::endl;
 	if (i - static_cast<int>(i) == 0) {
 		std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
 		std::cout << "double: " << static_cast<double>(i) << std::endl;
@@ -177,7 +179,7 @@ void	ScalarConverter::convertFromDouble( const std::string& str ) {
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: impossible" << std::endl;
-	if (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min())
+	if (i > 2147483647 || i < -2147483648)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(i) << std::endl;
@@ -186,11 +188,11 @@ void	ScalarConverter::convertFromDouble( const std::string& str ) {
 			std::cout << "float: impossible" << std::endl;
 		else
 			std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(i) << std::endl;
+		std::cout << "double: " << i << std::endl;
 	}
 	else {
 		std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(i) << std::endl;
+		std::cout << "double: " << i << std::endl;
 	}
 }
 
