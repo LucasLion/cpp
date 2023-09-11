@@ -6,7 +6,7 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/09/07 17:26:54 by llion@student    ###   ########.fr        #
+#    Updated: 2023/09/11 15:17:24 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,6 @@ leaks: $(OBJ)
 
 debug: $(OBJ)
 	$(CC) $(CXXFLAGS) -fsanitize=address -o $(NAME) $(OBJ)
-	make clean
 	@./$(NAME)
 
 clean:

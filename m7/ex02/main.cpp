@@ -1,26 +1,35 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 11:56:04 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/08 14:19:53 by llion@student    ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <iostream>
+#include <cstdlib>
 #include "Array.hpp"
+#include <ctime>
+
+#define MAX_VAL 750
 
 int main( void ) {
-	Array<int> numbers(10);	
+	Array<int> numbers(10);
 
+	std::srand(static_cast<unsigned int>(std::time(0))); // Initialisez la graine avec le temps actuel.
+	std::cout << "La taille du tableau est de " << numbers.size() << std::endl;
+	std::cout << "Les valeurs aleatoires du tableau sont :" << std::endl;
+	for (int i = 0; i < numbers.size(); i++) {
+		numbers[i] = std::rand() % 100;
+		std::cout << numbers[i] << std::endl;
+	}
+	std::cout << std::endl;
+	Array<std::string> strings(5);
+	strings[0] = "Hello";
+	strings[1] = "World";
+	strings[2] = "!";
+	strings[3] = "How";
+	strings[4] = "are you?";
+	std::cout << "La taille du tableau est de " << strings.size() << std::endl;
+	std::cout << "Les valeurs du tableau sont :" << std::endl;
+	for (int i = 0; i < strings.size(); i++) {
+		std::cout << strings[i] << std::endl;
+	}
+	return (0);
 }
-	
-//#include <Array.hpp>
-//
-//#define MAX_VAL 750
+
 //int main(int, char**)
 //{
 //    Array<int> numbers(MAX_VAL);
