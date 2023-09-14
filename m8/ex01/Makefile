@@ -6,11 +6,11 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/09/12 12:49:13 by llion@student    ###   ########.fr        #
+#    Updated: 2023/09/14 11:59:28 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= easy
+NAME	= span
 CC   	= c++
 CXXFLAGS= -ggdb3 -Wall -Wextra -Werror -std=c++98 -Wshadow
 RM		= rm -f
