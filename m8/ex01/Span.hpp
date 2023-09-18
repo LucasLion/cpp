@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:13:34 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/14 13:41:09 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/18 13:17:33 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include <vector>
 #include <iterator>
 #include <string>
+#include <cmath>
+#include <ctime>
+#include <cstdlib>
 
 class Span {
 
@@ -25,8 +28,9 @@ public:
 						Span( const Span& rhs );
 						~Span( void );
 
-	void				addNumber( int i ) ; 
-	void				addManyNumber( int i ) ;
+	Span&				operator=( const Span& rhs );
+	void				addNumbers( unsigned int i );
+	void				addNumber( int i ) ;
 	unsigned int		shortestSpan( void ) const ;
 	unsigned int	 	longestSpan( void ) const ;
 	std::vector<int>	getVector( void ) const ;
@@ -34,6 +38,10 @@ public:
 	unsigned int		getSize( void ) const ;
 
 	class vectorFullException : public std::exception {
+		virtual const char* what( void ) const throw ();
+	};
+
+	class notEnoughValuesException : public std::exception {
 		virtual const char* what( void ) const throw ();
 	};
 
