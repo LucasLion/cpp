@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:04:18 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/21 11:53:57 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/21 14:06:19 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,14 @@
 #include <stack>
 #include <stdlib.h>
 
-class RPN {
+class PmergeMe {
 
 public:
-			RPN( void );
-			~RPN( void );
-			RPN( const RPN& rhs );
-	RPN&	operator=( const RPN& rhs );
-	void	calculate( char** argv );
-	int		add( void );
-	int		sub( void );
-	int		mul( void );
-	int		div( void );
+				PmergeMe( void );
+				~PmergeMe( void );
+				PmergeMe( const PmergeMe& rhs );
+	PmergeMe&	operator=( const PmergeMe& rhs );
 
 private:
-	std::stack<int> _stack;
 
 };

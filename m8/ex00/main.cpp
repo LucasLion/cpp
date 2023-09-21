@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr </var/spool/m  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:31:52 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/11 18:41:22 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/20 17:17:40 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int main( void ) {
 	v.push_back(4);
 	std::cout << "Test who pass" << std::endl;
 	try {
-		std::cout << easyfind(v, 2) << std::endl;
+		easyfind(v, 2);
 	} catch (std::exception &e) {
 		std::cout << "Not found" << std::endl;
 	}
 	std::cout << "Test who fail" << std::endl;
 	try {
-		std::cout << easyfind(v, 5) << std::endl;
+		easyfind(v, 5);
 	} catch (std::exception &e) {
 		std::cout << "Not found" << std::endl;
 	}
