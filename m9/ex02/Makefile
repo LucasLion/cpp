@@ -6,7 +6,7 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/09/21 14:05:08 by llion@student    ###   ########.fr        #
+#    Updated: 2023/09/21 17:03:45 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	= PmergeMe
 CXX		= c++
 CXXFLAGS= -ggdb3 -Wall -Wextra -Werror -std=c++98 -Wshadow
 RM		= rm -f
-SRC		= main.cpp RPN.cpp
+SRC		= main.cpp PmergeMe.cpp
 OBJ		= $(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -32,10 +32,6 @@ leaks: $(OBJ)
 
 debug: $(OBJ)
 	@./$(NAME) input.txt
-
-run: $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
-	./$(NAME) "2 3 + 5 +"
 
 clean:
 	$(RM) $(OBJ) $(TOBJ)
