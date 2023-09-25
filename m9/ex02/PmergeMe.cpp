@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:06:37 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/25 14:53:42 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/25 15:06:48 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ std::vector<int>	PmergeMe::merge_sort( std::vector<int> array ) {
 	std::vector<int>			winners;
 	std::vector<int>			left(array.begin(), array.begin() + mid);
 	std::vector<int>			right(array.begin() + mid, array.end());
-	std::vector<int>::iterator	it;
 
 	if (len > 2) {
 		for (i = 0; i < len /2; i++) {
@@ -62,20 +61,12 @@ std::vector<int>	PmergeMe::merge_sort( std::vector<int> array ) {
 		}
 		merge_sort(left);
 		merge_sort(right);
-		printVec(left);
-		printVec(right);
+		//printVec(left);
+		//printVec(right);
 		std::cout << std::endl;
-		if (left.size() == 2) {
-			if (left[0] > left[1]) {
-				winners.push_back(left[0]);
-			} else
-				winners.push_back(left[1]);
-		}
 		
-	} else {
-		return (array);
 	}
-	printVec(winners);
+	//printVec(winners);
 	return (merge(left, left[0], left[1]));
 }
 
