@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:06:37 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/25 15:06:48 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/25 15:20:06 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ PmergeMe&	PmergeMe::operator=( const PmergeMe& rhs ) {
 	return (*this);
 }
 
-std::vector<int>	PmergeMe::split( std::string str ) {
+std::vector<int>	PmergeMe::splitString( std::string str ) {
 
 	std::istringstream	iss(str);
 	std::vector<int>	s;
@@ -37,15 +37,16 @@ std::vector<int>	PmergeMe::split( std::string str ) {
 	return (s);
 }
 
-std::vector<int>	PmergeMe::merge( std::vector<int> vec, int a, int b) {
-	(void)a;
-	(void)b;
-	return (vec);
+std::vector<int>	PmergeMe::merge( std::vector<int> array ) {
+	
+	if (array.size() == 2) {
+		std::cout << "1: " << array[0] << std::endl << "2: " << array[1] << std::endl;
+	}
+	return (array);
 }
 
 std::vector<int>	PmergeMe::merge_sort( std::vector<int> array ) {
 	
-	int							i;
 	int							len = array.size();
 	int							mid = len / 2;
 	std::vector<int>			winners;
@@ -53,21 +54,14 @@ std::vector<int>	PmergeMe::merge_sort( std::vector<int> array ) {
 	std::vector<int>			right(array.begin() + mid, array.end());
 
 	if (len > 2) {
-		for (i = 0; i < len /2; i++) {
-			left.push_back(array[i]);
-		}
-		for (i = len/2; i < len; i++) {
-			right.push_back(array[i]);
-		}
 		merge_sort(left);
 		merge_sort(right);
-		//printVec(left);
-		//printVec(right);
+		printVec(left);
+		printVec(right);
 		std::cout << std::endl;
 		
 	}
-	//printVec(winners);
-	return (merge(left, left[0], left[1]));
+	return (merge(array));
 }
 
 void	PmergeMe::printVec( std::vector<int> storage ) {

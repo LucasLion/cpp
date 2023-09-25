@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:48:18 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/25 13:08:48 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/25 15:10:53 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main( int argc, char **argv ) {
 	std::vector<int> array;
 
 	if (argc == 2) {
-		array = merge.split(static_cast<std::string>(argv[1]));
+		array = merge.splitString(static_cast<std::string>(argv[1]));
 		merge.merge_sort(array);
 	}
 	else
