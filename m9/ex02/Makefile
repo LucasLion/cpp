@@ -6,7 +6,7 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/09/21 17:03:45 by llion@student    ###   ########.fr        #
+#    Updated: 2023/09/25 10:42:04 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,10 @@ leaks: $(OBJ)
 
 debug: $(OBJ)
 	@./$(NAME) input.txt
+
+run: $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+	@./$(NAME) "4 9 2 8"
 
 clean:
 	$(RM) $(OBJ) $(TOBJ)
