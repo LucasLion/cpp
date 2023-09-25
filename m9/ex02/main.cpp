@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:48:18 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/21 17:12:29 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/25 13:08:48 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int main( int argc, char **argv ) {
 
 	PmergeMe merge;
-	std::vector<int> storage;
+	std::vector<int> array;
 
 	if (argc == 2) {
-		storage = merge.sort(argv);
-		merge.printVec(storage);
+		array = merge.split(static_cast<std::string>(argv[1]));
+		merge.merge_sort(array);
 	}
 	else
 	 std::cout << "Syntax error: ./PmergeSort <input>" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: llion@student.42mulhouse.fr <marvin@42.fr  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:04:18 by llion@student     #+#    #+#             */
-/*   Updated: 2023/09/21 16:58:39 by llion@student    ###   ########.fr       */
+/*   Updated: 2023/09/25 14:50:13 by llion@student    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ public:
 						~PmergeMe( void );
 						PmergeMe( const PmergeMe& rhs );
 	PmergeMe&			operator=( const PmergeMe& rhs );
-	std::vector<int>	sort( char **argv );
+	std::vector<int>	split( std::string str );
+	std::vector<int>	merge( std::vector<int> vec, int a, int b );
+	std::vector<int>	merge_sort( std::vector<int> array );
 	void				printVec( std::vector<int> );
 
 private:

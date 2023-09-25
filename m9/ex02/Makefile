@@ -6,7 +6,7 @@
 #    By: llion <llion@student.42mulhouse.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/06 01:09:23 by llion             #+#    #+#              #
-#    Updated: 2023/09/25 10:42:04 by llion@student    ###   ########.fr        #
+#    Updated: 2023/09/25 14:56:04 by llion@student    ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ leaks: $(OBJ)
 	@valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
 
 debug: $(OBJ)
-	@./$(NAME) input.txt
+	$(CXX) $(CXXFLAGS) -fsanitize=address -o $(NAME) $(OBJ)
+	@./$(NAME) "1 4 7 9 3 4 7 2 5 7 8"
 
 run: $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
